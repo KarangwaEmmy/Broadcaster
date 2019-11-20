@@ -1,0 +1,213 @@
+ 
+/* Content */
+.content{
+    width: 90%;
+    margin: 30px auto 30px;
+    /* border: 1px solid red; */
+    
+}
+.content .post-title{
+    align-items: center;
+    text-align: center;
+    color: #999;
+    font-size: 20px;
+}
+.content .blog-content{
+    height: auto;
+    width: 68%;
+    float: left;
+    border: 2 solid orange;
+ 
+}
+.content .blog-content .post{
+    width: 97%;
+    height: 230px;
+    margin: 10px auto;
+    border-radius: 5px;
+    background: #fff;
+}
+.content .blog-content .post-single{
+    width: 95%;
+    height: auto;
+    font-family: 'poppins', sans-serif;
+    margin: 10px auto;
+    padding: 20px;
+    border-radius: 5px;
+    background: #fff;
+}
+a{
+    text-decoration: none;
+}
+h3 .title-para{
+    color: #444;
+}
+.content .blog-content .post .post-image{
+    width: 320px;
+    height: 220px;
+    float: left;
+} 
+.content .blog-content .post  .read-more{
+    position: absolute;
+    float: right;
+}
+.content .blog-content .post .post-preview{
+    font-family: 'poppins', sans-serif;
+    width: 55%;
+    padding: 5px;
+    float: right;
+} 
+.content .blog-content .post .post-preview.post-text{
+    padding-bottom: 50px;
+}
+.content .blog-content .post .post-preview.post-image{
+    width: 40px;
+}
+.btn{
+    padding: 5px 5px;
+    margin: 10px 10px 0px 10px;
+    float: right;
+    font-size: 16px;
+    font-family: 'poppins', sans-serif;
+    background: #55A4D7;
+    color: white;
+    border: 1px solid transparent;
+    border-radius: 2.5px;
+}
+.btn:hover{
+    color: #55A4D7;
+    background: #fff;
+    text-transform: uppercase;
+    border: 2px solid #55A4D7;
+    cursor: pointer;
+}
+.text-input{
+    padding: 1rem 1rem;
+    display: block;
+    width: 100%;
+    font-size: 16px;
+    border-radius: 5px;
+    outline: none;
+    color: #444;
+    line-height: 1.5rem
+}
+.content .blog-content .post-title{
+    margin: 20px;
+    color: #55A4D7;
+}
+.content .blog-content .comment{
+    position: fixed;
+    margin: 0px 22%;
+    padding: 30px;
+}
+.content .blog-content .comment{
+
+}
+.content .sidebar{
+    width: 30%;
+    float: left;
+}
+ 
+.clearfix::after{
+    content: '';
+    display: block;
+    clear: both; 
+}
+.content .sidebar .section {
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+.content .sidebar .section.search{
+    margin-top: 60px;
+}
+.content .sidebar .section.topics.single{
+    margin-top: 60px;
+}
+.content .sidebar .section.topics ul{
+    margin: 0;
+    padding: 0;
+    list-style: none; 
+}
+.content .sidebar .section.topics ul li a{
+    display: block;
+    padding: 15px 0px 15px 0px;
+    border-bottom: 1px solid #e0e0e0;
+}
+.content .sidebar .section.topics ul li a{
+    color: #444;
+    font-family: 'poppins', sans-serif;
+}
+.content .sidebar .section.topics ul li a:hover{
+    padding-left: 10px;
+    transition: all .4s;
+    color: #55A4D7;
+}
+.single-Article{
+    color: red;
+}
+/* Pagination section */
+
+.pagination {
+    margin-top: 30px;
+    display: inline-block;
+    margin-left: 200px;
+  }
+  
+  .pagination a {
+    color: black;
+    float: left;
+    font-size: 20px;
+    font-family: 'poppins', sans-serif;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+  }
+  
+  .pagination a.active {
+    background-color: #55A4D7;
+    color: white;
+  }
+  .pagination a:hover:not(.active) {
+      background-color: rgb(233, 219, 219);
+      color: #1a0e0e;
+    }
+
+  /* mark */
+.mark{
+	width: 90%;
+	position: absolute;
+	margin-top:140px;
+}
+.mark ul{
+	margin-block-end: 0%;
+	float: left;
+	margin: 0 20%;
+	background-color: transparent;
+}
+.mark ul li.flag{
+background-color: rgb(247, 63, 7);
+position: absolute; 
+margin-left: 100px;
+list-style-type: none;
+padding: 5px;
+border-radius: 12px;
+color: aliceblue;
+opacity: 0.8;
+
+}
+.mark ul li.intervention{
+background-color: rgb(48, 206, 119);
+position: absolute; 
+margin-left: 100px;
+list-style-type: none;
+padding: 5px;
+border-radius: 12px;
+color: aliceblue;
+opacity: 0.8;
+
+}
+.mark ul li:hover{
+background-color: rgb(112, 91, 91);
+}
+    

@@ -1,0 +1,119 @@
+/* =====TEAMWORK FORM CSS==== */
+ 
+.container{
+    width: 100%;
+    margin: auto;
+    margin: 50px 0px;
+}
+#proform {
+	text-align: center;
+	font-size: 19px;
+	font-family: 'poppins', sans-serif;
+    position: relative;
+    margin-top: 0px;
+    opacity: 1;
+    padding-bottom: 30px; 
+    
+}
+
+#proform fieldset {
+    background: white;
+    border: 0 none;
+    margin: auto;
+    border-radius: 0px;
+    box-shadow: 0 0 5px 1px rgba(84, 89, 95, 0.4);
+    padding: 20px 50px;
+    box-sizing: border-box;
+    width: 80%;
+    
+
+}
+label{
+    color: #2C3E50;
+    font-size: 16px;
+    padding: 5px;
+    margin-left: 0px !important;
+    margin-bottom: 400px;
+}
+/*inputs*/
+input[type="text"],input[type="email"] , input[type="password"], select, textarea{
+    padding: 15px;
+	border-radius: 10px;
+    border: 1px solid #ccc;
+    border-radius: 0px;
+    margin-bottom: 25px;
+    width: 100%;
+    font-family: 'poppins', sans-serif;
+    box-sizing: border-box;
+    color: #2C3E50;
+    font-size: 13px;
+    background-color: #eeeeef;
+}
+input[type="checkbox"]{
+    float: left;
+    margin: 9px 5px;
+}
+#proform input, #proform textarea  {
+ 
+	font-size: 18px;
+	font-family: 'poppins', sans-serif;
+}
+
+/*buttons*/
+#proform button{
+    width: 100%;
+    margin: 30px 0;
+    padding: 10px;
+    border: none;
+    background-color: #55A4D7;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.3s all ease-in-out;
+}
+.login {
+	width: 200px;
+	text-decoration: none;
+	text-underline-position: unset;
+	text-align: center;
+	font-family: 'poppins', sans-serif;
+	font-size: 17px;
+}
+label{
+	width: 200px;
+	color: #797979;
+	margin-bottom: 10px;
+	text-decoration: none;
+	text-underline-position: unset;
+	text-align: left;
+	font-family: 'poppins', sans-serif;
+	font-size: 17px;
+}
+  /* style inputs and link buttons */
+.btn{
+    display: flex;
+    float: left;
+    align-items: center;
+    justify-content: center;
+    height: 36px;
+    padding: 20px;
+    max-width: max-content;
+    background-color: rgb(33, 33, 33, 0.07);
+    border-radius: 50px;
+    color: #2f2f2f;
+    line-height: 0;
+    margin: 0.6em 0;
+    margin-left: 10px;
+    font-size: 1rem;
+    padding: 0 1.3em;
+  }
+  .btn.edit{
+      background: green;
+      color: white;
+  }
+  .btn.delete{
+    background: red;
+    color: white;
+}
+ 
+/* End of form css */

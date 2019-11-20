@@ -1,0 +1,313 @@
+/* Responsiveness*/
+@media only screen and (max-width: 934px) {
+    
+    .content{
+        width: 1000%;
+        margin: 30px auto 30px; 
+        
+    }
+    h1{
+        font-size: 25px;
+    }
+    .content .blog-content{
+        width: 100%;
+        padding: 20px;
+    }
+    .content .blog-content .post{
+        width: 100%;
+        margin: 10px auto;
+        padding: 30px;
+    }
+    .content .sidebar{
+        width: 100%;
+        padding: 0px 20px;
+        float: left;
+    }
+    .content .sidebar .section.search{
+        margin-top: 20px;
+    }
+    .content .blog-content .post .post-preview.post-image{
+        width: 100%;
+    }
+    .tab h2{
+        margin: 30px 0;
+        color: white;
+        font-size: 35px;
+        letter-spacing: 2px
+    }
+    .container{
+        width: 100%;
+    }
+    .container .login_side{
+        margin-top: 10px;
+        width: 100%;
+    }
+    .container .tab{
+        width: 100%;
+        padding: 10px;
+    }
+}
+@media only screen and (max-width: 750px) {
+    header{
+        width: 100%;
+    }
+    header ul{
+        width: 100%;
+        background: #ddd;
+        /* max-height: 0px; */
+        overflow: hidden;
+    }
+    header ul li{
+        width: 100%;
+    }
+    header ul li ul{
+        position: static;
+        display: block;
+        width: 100%;
+        background: inherit;
+    }
+    header ul li ul li a{
+        padding: 10px;
+        background: #ddd;
+        color: #444;
+    }
+    header ul li ul li a:hover{
+        background: grey;
+    }
+    header ul li ul li a.logout{
+        color: black;
+    }
+    header .menu-toggle{
+        display: block;
+        position: absolute;
+        right: 20px;
+        top: 10px;
+        font-size: 1.5em;
+        cursor: pointer
+    }
+    header .logo{
+        float: left;
+        height: inherit;
+        margin-left: 2 rem;
+    }
+    header .logo-text{
+        font-size: 1.8em;
+    }
+    span{
+        color: black;
+    }
+    .content{
+        width: 100%;
+        box-sizing: border-box;
+        margin: 30px auto 30px;
+        
+    }
+    .content .blog-content{
+        width: 100%;
+        padding: 0px 20px;
+    }
+    .content .sidebar{
+        width: 100%;
+        padding: 0px 20px;
+        float: left;
+    }
+    .log-input .one{
+        width: 100%;
+    }
+    .content .blog-content .post{
+        margin-top: 25px;
+        height: 550px;
+    }
+    .content .blog-content .post .post-preview.post-image{
+        width: 100px;
+        height: 300px;
+    }
+    .content .blog-content .post .post-image{
+        width: 100%;
+        height: 320px;
+        float: left;
+    }
+    .content .blog-content .post .post-preview{
+        font-family: 'poppins', sans-serif;
+        width: 100%;
+        padding: 5px;
+        float: right;
+    } 
+    #proform {
+        width: 100%;
+    }
+    #proform fieldset {
+        width: 100%;
+        margin: auto;
+    }
+    .container{
+        width: 100%;
+    }
+    .container .login_side{
+        margin-top: 10px;
+        width: 100%;
+    }
+    .container .tab{
+        width: 100%;
+        padding: 10px;
+    }
+    .tab{
+        height: 573px;
+    }
+    .tab h2{
+        margin: 30px 0;
+        color: white;
+        font-size: 30px;
+        letter-spacing: 2px
+    }
+}
+@media only screen and (max-width: 910px) {
+    #proform{
+        width:59%;
+    }
+    #proform fieldset{
+          margin: auto;
+    }
+}
+@media screen and (max-width: 1220px) {
+    .content{
+    width: 100%;
+    }
+    .content .blog-content .post{
+        height: 550px;
+        padding: 30px;
+    }
+    .content .blog-content .post .post-image{
+        width: 100%;
+        height: 320px;
+        float: left;
+    }
+    .content .blog-content .post .post-preview{
+        font-family: 'poppins', sans-serif;
+        width: 100%;
+        padding: 5px;
+        float: right;
+    } 
+}
+
+@media screen and (max-width: 400px) {
+    .content{
+        width: 100%;
+        }
+        .content .blog-content .post{
+            height: 530px;
+            padding: 0px;
+        }
+        .content .blog-content .post .post-image{
+            width: 100%;
+            height: 220px;
+            float: left;
+        }
+        .content .blog-content .post .post-preview{
+            font-family: 'poppins', sans-serif;
+            width: 100%;
+            padding: 5px;
+            float: right;
+        }
+        .content .blog-content .post .post-preview.title-para{
+            color: red;
+        }
+        .pagination{
+            width: 100%;
+            margin: 0;
+        }
+        .content .blog-content .post-title{
+            margin: 10px;
+            color: #55A4D7;
+        }
+        #proform input, #proform textarea  {
+            font-size: 12px;
+            font-family: 'poppins', sans-serif;
+        }
+
+}
+@media screen and (max-width: 300px) {
+    .content{
+        width: 100%;
+        }
+        .content .blog-content .post{
+            height: 500px;
+            padding: 0px;
+        }
+        .content .blog-content .post .post-image{
+            width: 100%;
+            height: 220px;
+            float: left;
+        }
+        .content .blog-content .post .post-preview{
+            font-family: 'poppins', sans-serif;
+            width: 100%;
+            padding: 5px;
+            float: right;
+        }
+        .pagination {
+            width: 100%;
+            margin: 0;
+            font-size: 10px;
+        }
+        .pagination a{
+            font-size: 12px;
+        }
+    
+        .container .tab{
+            height: 400px;
+        }
+        .container .tab .container{
+            width: 100%;
+            margin: 0px;
+        }
+        .container .tab .container h2{
+            font-size: 20px;
+            color: white;
+        }
+        .container .tab .container p{
+            font-size: 15px;
+            width: 100%;
+            color: white;
+        }
+        .tab h2{
+            font-size: 10px;  
+        }
+        .container .login_side{
+            width: 100%;
+            height: 400px;
+        }
+        .container .login_side a{
+            font-size: 12px;
+            float: left;
+            display: inline-block;
+        }
+        .container .login_side span.me{
+            display: none;
+        }
+   
+      
+}
+@media screen and (min-width: 24.375em) {
+    .legal .legal__links {
+      margin-left: auto;
+    }
+  }
+  
+  @media screen and (min-width: 40.375em) {
+    .footer__nav > * {
+      flex: 1;
+    }
+    
+    .nav__item--extra {
+      flex-grow: 2;
+    }
+    
+    .footer__addr {
+      flex: 1 0px;
+    }
+    
+    .footer__nav {
+      flex: 2 0px;
+    }
+  }
