@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Broadcaster</title>
+    <link rel="stylesheet" href="../css/Reused.css">
+    <link rel="stylesheet" href="../css/forms.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" type="text/css" href="../css/fonts/css/all.css">
+    <link rel="stylesheet" href="../css/googlefont.css">
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+    <header>
+            <div class="logo">
+                <h1 class="logo-text">Broad<span>Caster</span></h1>
+            </div>
+            <i class="fa fa-bars menu-toggle" onclick="myFunction()"></i>
+            <ul class="nav" class="site-nav" id="site-nav">
+                <li>
+                <a href="#"><i class="fa fa-briefcase"></i> Account <i class="fa fa-chevron-down"></i> </a>
+                <ul>
+                    <li><a href="newAccount.html"><i class="fa fa-user"></i> New Account</a></li>
+                </ul>
+                </li>
+            </ul>
+    </header>
+    <div class="container">
+        <div class="tab">
+            <div class="container">
+                <h2>Welcome to BroadCaster!</h2>
+                <p>Login  to access unlimited incidents | do not have  an account?</p>
+                <form action="newAccount.html">
+                    <button>Create new Account</button></form>
+            </div>
+        </div> 
+        <div class="login_side">
+            <div class="container">
+                <h1>Log in</h1>
+                <div class="notify"></div>
+                <form action="dashboard.html" id="proform" class="formbro">
+                    <input type="email" placeholder="Email">
+                    <input type="password" placeholder="Password"><br>
+                    <input type="checkbox"><span class="me">Remember me</span>   
+                <a href="#">Forgot password?</a>
+                <button>log in</button>
+                </form>
+            </div>
+        </div>    
+    </div>
+    <!-- Javascript file-->
+    <script src="../custom.js"></script>
+</body>
+</html>
