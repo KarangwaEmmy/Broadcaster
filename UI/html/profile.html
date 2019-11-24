@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Teamwork</title>
+    <link rel="stylesheet" type="text/css" href="../css/fonts/css/all.css">
+    <link rel="stylesheet" href="../css/Reused.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/forms.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1 class="logo-text">Broad<span>Caster</span></h1>
+        </div>
+        <i class="fa fa-bars menu-toggle" onclick="myFunction()"></i>
+        <ul class="nav" class="site-nav" id="site-nav">
+            <li><a href="dashboard.html"><i class="fa fa-home"></i> Home</a></li>
+            <li><a href="profile.html"><i class="fa fa-magnifier"></i> All records</a></li>
+            <li>
+            <a href="#"><i class="fa fa-user"></i> Settings <i class="fa fa-chevron-down"></i> </a>
+            <ul>
+                <li><a href="index.html" class="logout">Logout</a></li>
+            </ul>
+           </li>
+        </ul>
+    </header>
+    <!-- Content -->
+    <div class="content clearfix">
+            <div class="blog-content ">
+               <h1 class="post-title">Manage red flags and intervations</h1>
+                
+               <div class="post">
+                 <div id="notify"></div>
+                    <img src="../images/bad-road.jpg" alt="hello" class="post-image">
+                    <div class="post-preview">
+                            <div><h3><a href="single-Article.html"> 
+                                    The steady decline  could be by bad road conditions. </a></h3></div> 
+                            <i class="fa fa-user"> Paul Kagame</i> 
+                            &nbsp; <i class="fa fa-calendar"> 23 mar 2019</i>
+                            <p class="post-text">
+                                    Local and city roads that need pothole repair, resurfacing and leveling are  vehicle operating costs such as fuel consumption, tire wear, and deterioration.  
+                            </p>
+                            <a href="updateIncident.html" class="btn  edit">Edit</a>
+                            <a href="#" class="btn delete">Delete</a>
+                            <!-- <a href="single-Article.html" class="btn mark">Mark</a> -->
+                    </div>
+                </div>
+                <div class="post">
+                  <form action="" id="form1">
+                    <img src="../images/flood.jpg" alt="hello" class="post-image">
+                    <div class="post-preview">
+                        <h3><a href="single-Article"> Drenching rains flood highways, trap motorists </a></h3> 
+                        <i class="fa fa-user"> Emmy Karangwa</i> 
+                        &nbsp; <i class="fa fa-calendar"> 23 mar 2019</i>
+                        <p class="post-text">
+                            Want it to be the cream of the crop, the crème de la crème and elevate you above competitors? 
+                            
+                        </p>
+                        <a href="updateIncident.html" class="btn  edit">Edit</a>
+                        <button class="btn delete" id="delete_incident" onclick="deleteIncident()" >Delete</button>
+                        <!-- <a href="single-Article.html" class="btn mark">Mark</a> -->
+                    </div>
+                  </form>
+                </div>
+            </div>
+            <div class="sidebar">
+                <div class="section search">
+                    <h3 class="post-title">More Searches</h3>
+                    
+                </div>
+                <div class="section topics">
+                    <ul>
+                        <li><a href="#">Draft</a></li>
+                        <li><a href="#">under investigation</a></li>
+                        <li><a href="#">resolved</a></li>
+                        <li><a href="#">rejected</a></li>
+                    </ul>
+                </div>
+            </div>
+       </div>
+       <!-- footer -->
+       <footer class="footer">
+            <div class="footer__addr">
+              <h1 class="footer__logo">Broad<span>Caster</span></h1>
+                  
+              <h2>Contact</h2>
+              
+              <address>
+                 (250) 786639530, Kigali - Rwanda<br>
+                    
+                <a class="btn left" href="mailto:andela@employees.com">Email Us</a>
+              </address>
+            </div>
+            
+            <ul class="footer__nav">
+              <li class="nav__item">
+                <h2 class="nav__title">Quik Links</h2>
+          
+                <ul class="nav__ul">
+                  <li>
+                    <a href="#">create Account</a>
+                  </li>
+          
+                  <li>
+                    <a href="#">Add new article</a>
+                  </li>
+                      
+                  <li>
+                    <a href="#">View All article</a>
+                  </li>
+                </ul>
+              </li>
+              
+              <li class="nav__item ">
+                <h2 class="nav__title">Stay connected</h2>
+                <ul class="nav__ul">
+                    <div class="social">
+                        <li ><a href=""><i class="fab fa-facebook-square"></i></a></li>
+                        <li><a href=""><i class="fab fa-instagram"></i></a></li>
+                        <li><a href=""><i class="fab fa-linkedin"></i></a></li>
+                        <li><a href=""><i class="fab fa-twitter-square"></i></a></li>
+                    </div>
+                </ul>
+              </li>
+            </ul>
+            
+            <div class="legal">
+              <p>&copy; 2019 Teamwork. All rights reserved.</p>
+            </div>
+          </footer>
+    <script src="../js/custom.js"></script>
+    <script src="../js/script.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
