@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Broadcaster | new flag</title>
+    <link rel="stylesheet" href="../css/Reused.css">
+    <link rel="stylesheet" href="../css/forms.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" type="text/css" href="../css/fonts/css/all.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+        <header>
+                <div class="logo">
+                    <h1 class="logo-text">Broad<span>Caster</span></h1>
+                </div>
+                <i class="fa fa-bars menu-toggle" onclick="myFunction()"></i>
+                <ul class="nav" class="site-nav" id="site-nav">
+                        <li><a href="dashboard.html"><i class="fa fa-home"></i> Home</a></li>
+                        <li>
+                        <a href="#"><i class="fa fa-user"></i> Settings <i class="fa fa-chevron-down"></i> </a>
+                        <ul>
+                            <li><a href="Manage.html">Dashboard</a></li>
+                            <li><a href="index.html" class="logout">Logout</a></li>
+                        </ul>
+                       </li>
+                    </ul>
+            </header>
+            <div class="container">
+                    <div class="form_nav">
+                    <form action="dashboard.html" id="proform">
+             <fieldset>
+             <h3 class="form-title">Create New red flag</h3>
+             <div>
+                    <label for="title">title</label>
+                    <input type="text" class="input" placeholder="Enter title" >
+                </div>
+                <div>
+                    <label for="type">type</label>
+                     <select name="" id="">
+                         <option value="redFlag">Red-flag</option>
+                         <option value="intervation">Inttervation</option>
+                     </select>
+                </div>
+                <div>
+                    <label for="status">Status</label>
+                    <select name="" id="">
+                        <option value="draft">Draft</option>
+                        <option value="under">Under Investigation</option>
+                        <option value="resolved">Resolved</option>
+                        <option value="rejected">Rejected</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="location">Location</label>
+                    <input type="text" name="location" placeholder="Location">
+                </div>
+                <div>
+                    <label for="image">Upload Image</label><br>
+                    <input type="file" name="upload" id="upload">
+                </div>
+                <div>
+                    <label for="video">Upload Video</label><br>
+                    <input type="file" name="video" id="video">
+                </div>
+             <div>
+                 <label for="comment">comment</label><br>
+                 <textarea name="" id="" cols="80" rows="2"></textarea>
+             </div>
+             <div>
+                 <input type="submit" class="btn"  value="Create incident">
+             </div>
+            </fieldset>
+         </form>
+                    </div>
+                    
+                  </div>
+    <!-- Javascript file-->
+    <script src="../js/custom.js"></script>
+</body>
+</html>
