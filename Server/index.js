@@ -1,7 +1,7 @@
 import express from 'express';
 import bodyparser from 'body-parser';
 import userRouter from './routes/userRouter';
-import flagRoute from './routes/flagRoute'
+// import flagRoute from './routes/flagRoute'
 
 const app = express();
 
@@ -15,7 +15,7 @@ app.get('/', (req, res) => res.send({
 }));
 
 app.use('/api/v1/auth', userRouter);
-app.use('/api/v1', flagRoute);
+// app.use('/api/v1', flagRoute);
 
 // eslint-disable-next-line no-undef
 let port = process.env.PORT;
