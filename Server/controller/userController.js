@@ -23,28 +23,28 @@ const User = {
     }
   },
 
-  // async Login(req, res) {
-  //   const user = await UserModel.findOne(req.body);
-  //   if (!user) {
-  //     return res.status(400).json({
-  //       status: 400,
-  //       error: 'Wrong credentials',
-  //     });
-  //   }
-  //   return res.status(200).json({
-  //     status: 200,
-  //     message: ' successfully, user signed in',
-  //     data: user,
-  //   });
-  // },
+  async Login(req, res) {
+    const user = await UserModel.findOne(req.body);
+    if (!user) {
+      return res.status(400).json({
+        status: 400,
+        error: 'Wrong credentials',
+      });
+    }
+    return res.status(200).json({
+      status: 200,
+      message: ' successfully, user signed in',
+      data: user,
+    });
+  },
 
-  // async fetchAll(req,res){
-  //   const allusers = await UserModel.findAllUsers();
-  //   if(allusers){
-  //     return serverResponse(res, 201, ...['status', 'success', 'data', allusers]);
-  //   }
-  //   return serverResponse(res, 404, ...['status', 'error', 'error', 'No result found in the array']);
-  // }
+  async fetchAll(req,res){
+    const allusers = await UserModel.findAllUsers();
+    if(allusers){
+      return serverResponse(res, 200, ...['status', 'error', 'data', allusers]);
+    }
+    return serverResponse(res, 404, ...['status', 'error', 'error', 'No result found in the array']);
+  }
 };
 
 export default User;

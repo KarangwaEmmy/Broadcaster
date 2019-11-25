@@ -3,10 +3,10 @@ import 'dotenv/config';
 import { authResponse } from '../Helper/Response';
 
 
-const generateToken = userObj => jwt.sign(userObj, process.env.SECRET_KEY);
+const generateToken = tokenObj => jwt.sign(tokenObj, process.env.SECRET_KEY);
 const checkToken = (req, res, next) => {
   try {
-    const header = req.headers.authorization;
+    const header = req.headers['x-auth-token'] || req.headers.authorization;
     if (!header) {
       return authResponse(res, 403, ...['error', 'Token must be provided']);
     }

@@ -16,7 +16,7 @@ response.status(statusValue).json({
 });
 const userResponse = (response, statusValue, userData) => 
 response.status(statusValue).json({
- status: 'success',
+ status: '200',
  data: userData
 });
 

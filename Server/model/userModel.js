@@ -1,6 +1,6 @@
 import uuid from 'uuid';
 import allData from '../config/allData';
-import { generateToken } from '../Middleware/tokenHandler';
+import { generateToken } from '../Middleware/Auth';
 
 const today = new Date().toLocaleDateString(undefined, {
     day: 'numeric',
@@ -42,38 +42,38 @@ const today = new Date().toLocaleDateString(undefined, {
               token
           }
         }
-      // findAllUsers(){
-      //     return this.userList;
-      // }
+      findAllUsers(){
+          return this.userList;
+      }
 
-      // findEmail(data){
-      //   const checkEmail = this.userList.find(user => user.email === data.email)
-      //   return checkEmail;
-      // }
+      findEmail(data){
+        const checkEmail = this.userList.find(user => user.email === data.email)
+        return checkEmail;
+      }
 
       //For logging in the
-      // findOne(data) {
+      findOne(data) {
       //Check is the email and password is equal to the passed ones
-      // const foundUser = this.userList.find(user => user.email === data.email && user.password === data.password);
-      // if(foundUser){
-      //   return {
-      //     token: foundUser.token,
-      //   };
-      // }
-      // return false;
-      // }
-       //For verifying user validity
-      // findOneWithId(id) {
-      //   const foundUserWithId = this.userList.find(user => user.token === token);
-      //   if (foundUserWithId) {
-      //     return {
-      //       id: foundUserWithId.id,
-      //       token: foundUserWithId.token,
-      //       email: foundUserWithId.email,
-      //       firstname: foundUserWithId.firstname,
-      //     };
-      //   }
-      //   return false;
-      // }
+      const foundUser = this.userList.find(user => user.email === data.email && user.password === data.password);
+      if(foundUser){
+        return {
+          token: foundUser.token,
+        };
+      }
+      return false;
+      }
+      // For verifying user validity
+      findOneWithId(id) {
+        const foundUserWithId = this.userList.find(user => user.token === token);
+        if (foundUserWithId) {
+          return {
+            id: foundUserWithId.id,
+            token: foundUserWithId.token,
+            email: foundUserWithId.email,
+            firstname: foundUserWithId.firstname,
+          };
+        }
+        return false;
+      }
   }
   export default new Users();
