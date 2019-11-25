@@ -20,7 +20,7 @@ app.use('/api/v1', flagRoute);
 // eslint-disable-next-line no-undef
 let port = process.env.PORT;
 if (port == null || port === '') {
-  port = 7000;
+  port = 8000;
 }
 
 const server = app.listen(port, console.log(`App running on port ${port}`));
