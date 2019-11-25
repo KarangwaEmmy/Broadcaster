@@ -4,7 +4,14 @@ import server from '../index';
 
 const {expect} = chai;
 chai.use(chaiHttp);
-
+const userData = {
+    "firstname": "Emmy ", 
+    "firstname": " Karangwa",  
+    "email​": "karangwae@gmail.com",
+    "phoneNumber": "(+250) 786639530",
+    "username": "Kemmy",
+    "password": "karagwa"
+}
 let testToken = null;
 
 describe('Testing Authenticatiopn Endpoint', (done) =>{
