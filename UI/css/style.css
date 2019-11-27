@@ -99,11 +99,9 @@ h3 .title-para{
     margin: 0px 22%;
     padding: 30px;
 }
-.content .blog-content .comment{
-
-}
 .content .sidebar{
     width: 30%;
+    top: 10px;
     float: left;
 }
  
@@ -114,7 +112,8 @@ h3 .title-para{
 }
 .content .sidebar .section {
     background: #fff;
-    padding: 20px;
+    margin-top: 10px;
+    padding: 0px 0px;
     border-radius: 5px;
     margin-bottom: 20px;
 }
@@ -210,4 +209,130 @@ opacity: 0.8;
 .mark ul li:hover{
 background-color: rgb(112, 91, 91);
 }
+
+ 
+  /* Admin table */
+  table {
+    border: 2px solid #ccc;
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    float: left;
+    table-layout: fixed;
+    font-family: 'poppins', sans-serif; 
+  }
+  
+  table caption {
+    font-size: 1.5em;
+    margin: .5em 0 .75em;
+  }
+  
+  table tr {
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    padding: .35em;
+  }
+  
+  table th,
+  table td {
+    padding: .625em;
+    text-align: left;
+  }
+  
+  table th {
+    font-size: .85em;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+  }
+  
+  @media screen and (max-width: 600px) {
+    table {
+      border: 0;
+    }
+  
+    table caption {
+      font-size: 1.3em;
+    }
     
+    table thead {
+      border: none;
+      clip: rect(0 0 0 0);
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      width: 1px;
+    }
+    
+    table tr {
+      border-bottom: 3px solid #ddd;
+      display: block;
+      margin-bottom: .625em;
+    }
+    
+    table td {
+      border-bottom: 1px solid #ddd;
+      display: block;
+      font-size: .8em;
+      text-align: left;
+    }
+    
+    table td::before {
+      content: attr(data-label);
+      float: left;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    
+    table td:last-child {
+      border-bottom: 0;
+    }
+  }
+/* Statistics css */
+.column {
+    float: left;
+    width: 100%;
+    padding: 0 10px;
+    font-family: 'poppins', sans-serif; 
+  }
+  
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    text-align: center;
+    background-color: #e9e9e9;
+    margin-bottom: 2px;
+  }
+  
+  @media screen and (max-width: 600px) {
+    .column {
+      width: 100%;
+      display: block;
+      margin-bottom: 20px;
+    }
+  }
+  /* badge css */
+  .badge {
+    box-sizing: border-box;
+    display: inline-block;
+    background-color: #55A4D7;
+    color: white;
+    border-radius: 3rem;  
+    font-weight: 400;
+    float: left;
+    font-size: 1rem;
+    padding: .15rem .55rem .24rem;
+    line-height: inherit;
+}
+.badge.rejected{
+    background: rgb(218, 21, 21);
+}
+.badge.intervention {
+    background: rgb(202, 221, 119);
+}
+.badge.resolved {
+    background: rgb(41, 207, 77);
+}
