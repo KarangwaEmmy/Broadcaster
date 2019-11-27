@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Broadcaster | Update</title>
+    <title>Broadcaster | new flag</title>
     <link rel="stylesheet" href="../css/Reused.css">
     <link rel="stylesheet" href="../css/forms.css">
     <link rel="stylesheet" href="../css/responsive.css">
@@ -13,71 +13,71 @@
     <link rel="stylesheet" href="../css/main.css">
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <h1 class="logo-text">Broad<span>Caster</span></h1>
-        </div>
-        <i class="fa fa-bars menu-toggle" onclick="myFunction()"></i>
-        <ul class="nav" class="site-nav" id="site-nav">
-                <li><a href="dashboard.html"><i class="fa fa-home"></i> Home</a></li>
-                <li><a href="newFlag.html">New Flag</a></li>
-                <li>
-                <a href="#"><i class="fa fa-user"></i> Settings <i class="fa fa-chevron-down"></i> </a>
-                <ul>
-                    <li><a href="Manage.html">Dashboard</a></li>
-                    <li><a href="index.html" class="logout">Logout</a></li>
-                </ul>
-                </li>
-            </ul>
-    </header>
-    <div class="container">
-        <div class="form_nav">
-                    <form action="index.html" id="proform">
-             <fieldset>
-             <h3 class="form-title">Update an Intervention</h3>
-             <div>
-                    <label for="title">title</label>
-                    <input type="text" class="input" value="The steady decline could be by bad road conditions." placeholder="Enter title" >
+        <header>
+                <div class="logo">
+                    <h1 class="logo-text"><a href="dashboard.html">Broad<span>Caster</a></span></h1>
                 </div>
-                <div>
-                    <label for="type">type</label>
-                     <select name="" id="">
-                        <option value="red Flag">Red Flag</option>
-                         <option value="intervation">Intervation</option>
-                     </select>
-                </div>
-                <div>
-                    <label for="status">Status</label>
-                    <select name="" id="">
-                        <option value="draft">Draft</option>
-                        <option value="under">Under Investigation</option>
-                        <option value="resolved">Resolved</option>
-                        <option value="rejected">Rejected</option>
-                    </select>
-                </div>
-                <div>
-                    <label for="location">Location</label>
-                    <input type="text" value="56.878798, 67.7678687" name="location" placeholder="Location">
-                </div>
-                <div>
-                    <label for="image">Upload Image</label><br>
-                    <input type="file" name="upload" id="upload">
-                </div>
-                <div>
-                    <label for="video">Upload Video</label><br>
-                    <input type="file" name="video" id="video">
-                </div>
-             <div>
-                 <label for="comment">comment</label><br>
-                 <textarea name="" id="" cols="80" rows="2">Local and city roads that need pothole repair, resurfacing and leveling are vehicle operating costs.</textarea>
-             </div>
-             <div>
-                 <input type="submit" class="btn"  value="Update">
-             </div>
-            </fieldset>
-         </form>
-        </div>  
-    </div>
+                <i class="fa fa-bars menu-toggle" onclick="myFunction()"></i>
+                <ul class="nav" class="site-nav" id="site-nav">
+                        <li><a href="dashboard.html"><i class="fa fa-home"></i> Home</a></li>
+                        <li>
+                        <a href="#"><i class="fa fa-user"></i> Settings <i class="fa fa-chevron-down"></i> </a>
+                        <ul>
+                            <li><a href="Manage.html">Dashboard</a></li>
+                            <li><a href="index.html" class="logout">Logout</a></li>
+                        </ul>
+                       </li>
+                    </ul>
+            </header>
+            <div class="box">
+                    <div class="box-form">
+                        <h2>Update Incident</h2>
+                      </div>
+                      <div class="box-form">
+                        <div class="fieldset-body">
+                           <form action="dashboard.html" method="post">
+                                <p class="field">
+                                        <label for="title">Title</label>
+                                        <input type="text" value="Road broken at Kimironko" class="input" placeholder="Enter title" >
+                                    </p>
+                                    <p class="field">
+                                    <label for="type">Type</label>
+                                    <select name="" id="">
+                                        <option value="redFlag">Red-flag</option>
+                                        <option value="intervation">Intervention</option>
+                                    </select>
+                                    </p> 
+                                    <p class="field">
+                                    <label for="status">Status</label>
+                                    <select name="" id="">
+                                        <option value="draft">Draft</option>
+                                        <option value="under">Under Investigation</option>
+                                        <option value="resolved">Resolved</option>
+                                        <option value="rejected">Rejected</option>
+                                    </select>
+                                  </p>
+                                  <p class="field">
+                                    <label for="location">Location</label>
+                                    <input type="text" name="location" value=" -12,6676757, -21.5456456">
+                                    </p>
+                                    <p class="field">
+                                    <label for="image">Upload Image</label><br>
+                                    <input type="file" name="upload" id="upload">
+                                    </p>
+                                      <p class="field">
+                                    <label for="video">Upload Video</label><br>
+                                    <input type="file" name="video" id="video">
+                                  </p>
+                                  <p class="field">
+                                    <label for="comment">Comment</label><br>
+                                    <textarea name="" id="" cols="80" rows="5">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</textarea>
+                                  </p>
+                                    <input type="submit" class="btn" value="Update Incident" title="Get Started" />
+                           </form>
+                        </div>
+                      </div>
+                    </div>
+                    
     <!-- Javascript file-->
     <script src="../js/custom.js"></script>
 </body>

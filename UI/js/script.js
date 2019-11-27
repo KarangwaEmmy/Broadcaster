@@ -1,5 +1,5 @@
 const handleMessage = (message) => {
-    document.querySelector('#proform').addEventListener('submit', (event) => {
+    document.querySelector('#form1').addEventListener('submit', (event) => {
       event.preventDefault();
       const notify = document.querySelector('#notify');
       notify.innerHTML = '';
@@ -39,4 +39,30 @@ const deleteIncident = () => {
       }
     }, { once: true });
     form.removeEventListener('submit');
+  };
+
+
+  function deleteEntry(){
+    const choice = 'Are you sure you want to delete this Incident?';
+
+    if(confirm(choice) == true){
+       window.location.href('../html/profile.html');
+       setTimeout(() => { notify.innerHTML = 'Incident was deleted Successfuly' }, 2500);
+    }
+
+  } 
+
+  const signUpUser = () => {
+    document.querySelector('#signupForm').addEventListener('submit', (event) => {
+      event.preventDefault();
+      const notify = document.querySelector('#notify');
+      notify.innerHTML = '';
+      notify.innerHTML = '<div class="alert success">'
+        + `</strong>${signUpSuccess}</div>`;
+    }, { once: true });
+    const redirectNow = () => {
+      const modal1 = document.getElementById('sign-up-modal');
+      modal1.style.display = 'none';
+    };
+    setTimeout(redirectNow, 2500);
   };
