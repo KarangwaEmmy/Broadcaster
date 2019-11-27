@@ -15,7 +15,7 @@ POST | `/signin` | Login The User
 ### Red-flags End POINTS
 
 HTTP METHOD|    END POINT            | DESCRIPTION
------------|----------|--------------|------
+-----------|-------------------------|------
 GET        | `/red-flags`            | Get all red-flags
 GET        | `/red-flags/:id`        | Get  specified red-flag by Id
 POST       | `/red-flags`            | Create a red-flag

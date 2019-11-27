@@ -1,3 +1,4 @@
+import moment from 'moment';
 import allData from '../config/allData';
 
 const today = new Date().toLocaleDateString(undefined, {
@@ -65,8 +66,16 @@ deleteredFlag(id){
 }
 
 updateredFlag(flag, id){
-  this.redFlaglist.sprice(id, 1, flag)
+  this.redFlaglist.sprice(flag, 1, id)
   return this.redFlaglist;
+}
+// Update the comment of the redflag and intervention
+updateLocation(id, data) {
+  const incident = this.findOne(id);
+  const index = this.redFlaglist.indexOf(incident);
+  this.redFlaglist[index].location = incident.location;
+  this.redFlaglist[index].modifiedDate = moment.now()
+  return this.redFlaglist[index];
 }
 }
 

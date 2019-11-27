@@ -56,26 +56,34 @@ const postFlag =  (req, res) => {
             return serverResponse(res, 200, ...['status', 'success', 'data', 'ref flag not found, may be was deleted' ]);
         }
     }
-    const updateAdvert = async (req, res) => {
-        try {
+    const updateByLocation = async (req, res) => {
+        // try {
+          const {id} = req.params;
+      const flagLocation = redFlag.findOne(id);
+      if(flagLocation){
+        flagLocation.location = req.body.location;
 
-          const flagId = Number(req.params.id);
-          const flagArray = redFlag.allRedFlags();
-          const flagData = flagArray.find(flag => flag.id === flagId);
-          const flagIndex = flagArray.findIndex(flag => flag.id === flagId);
-          const {title, type, location, status, comment } = req.body;
-
-          flagData.title = (flagData.title === title) ? flagData.title : title;
-          flagData.location = (flagData.location === location) ? flagData.location : location;
-          flagData.city = (flagData.city === city) ? flagData.city : city;
-          flagData.status = (flagData.status === status) ? flagData.status : status;
-          flagData.images = (flagData.images === images) ? flagData.images : images;
-          flagData.type = (flagData.type === type) ? flagData.type : type;
-          flagData.comment = (flagData.comment === comment) ? flagData.comment : comment;
-          redFlag.updateredFlag(flagData, flagIndex);
-          return serverResponse(res, 200, ...['status', 'success', 'data', flagData]);
-        } catch (err) {
-          return serverError(res);
-        }
+        return serverResponse(res, 200, ...['status', 'success', 'data', flagLocation]);
+      }else{
+        return serverResponse(res, 200, ...['status', 'error', 'Message', 'No incident found with this ID']);
+      }
+      
+        // } catch (err) {
+        //   return serverError(res);
+        // }
     }
-export {postFlag, fetchAllFlags, getOneFlag, deleteFlag, updateAdvert}
+    const UpdateComment = async (req, res) => {
+      // try {
+    const foundComment = redFlag.findOne(req.params.id);
+    if(foundComment){
+      return serverResponse(res, 200, ...['status', 'success', 'Message', 'No Incident found with this ID' ]);   
+    }
+    const comment = redFlag.updateLocation(req.params.id);
+    if(comment){
+      return serverResponse(res, 200, ...['status', 'success', 'data', { message: 'Incident location updated Successfully' }]);
+    }
+      // } catch (err) {
+      //   return serverError(res);
+      // }
+  }
+export {postFlag, fetchAllFlags, getOneFlag, deleteFlag, updateByLocation, UpdateComment}
