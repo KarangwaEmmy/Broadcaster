@@ -1,4 +1,4 @@
-import { serverError, serverResponse, authResponse } from '../Helper/Response'
+import { serverError, serverResponse } from '../Helper/Response'
 import redFlag from '../model/redFlag';
 import User from '../model/userModel';
 
@@ -62,12 +62,11 @@ const postFlag =  (req, res) => {
            flagData.comment = (flagData.comment === comment) ? flagData.comment : comment;
            redFlag.updateIncident(flagData, flagIndex);
            return serverResponse(res, 200, ...['status', 'Success', 'data', flagData]);
-       }
-       
+          }
           catch (err) {
            return serverError(res);
           }
-
+        }
     const updateLocation = async (req, res) => {
          try {
           const id = Number(req.params.id);
@@ -90,7 +89,7 @@ const postFlag =  (req, res) => {
         }
       }
      
-           const deleteFlag = async(req, res) => {
+        const deleteFlag = async(req, res) => {
        try{
         const id = Number(req.params.id);
         const deletedFlag = await redFlag.deleteredFlag(id);
@@ -103,5 +102,5 @@ const postFlag =  (req, res) => {
          return serverError(res);
        }
     }
-        }
+        
 export {postFlag, fetchAllFlags, getOneFlag, deleteFlag, updateLocation, UpdateComment}
