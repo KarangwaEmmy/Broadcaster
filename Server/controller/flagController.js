@@ -46,5 +46,28 @@ const postFlag =  (req, res) => {
           return serverError(res);
         }
       };
- 
+
+
+    const updateLocation = async (req, res) => {
+         try {
+          const id = Number(req.params.id);
+          if (!id) throw new Error('Invalid red falg ID');
+          const result = redFlag.findOne(id);
+          if (!result) return serverResponse(res, 404, ...['status', 'error', 'error', 'No result found. Enter a valid value and try again.']);
+          const flagArray = redFlag.allRedFlags();
+          const flagData = flagArray.find(flag => flag.id === id);
+          const flagIndex = flagArray.findIndex(flag => flag.id === id);
+
+          const {location} = req.body;
+
+          flagData.location = (flagData.location === location) ? flagData.location : location;
+          redFlag.updateIncident(flagData, flagIndex);
+          return serverResponse(res, 200, ...['status', 'Success', 'data', flagData]);
+      }
+      
+         catch (err) {
+          return serverError(res);
+        }
+      }
+        
 export {postFlag, fetchAllFlags, getOneFlag, deleteFlag, updateLocation, UpdateComment}

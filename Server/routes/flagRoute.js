@@ -17,7 +17,10 @@ router.get('/red-flags/:id',
 checkToken,
 getOneFlag);
 
-
+router.patch('/red-flags/:id/location',
+LocationValidation,
+checkToken,
+updateLocation);
 
 
 
