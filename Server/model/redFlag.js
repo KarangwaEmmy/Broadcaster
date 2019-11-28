@@ -39,7 +39,19 @@ class redFlag{
      newRedFlag
     }
  };
-  
+ allRedFlags(){
+   return this.redFlaglist;
+ }
+ findOne(id) {
+  const oneFlag = this.redFlaglist.find(flag => flag.id === id);
+  return oneFlag;
+}
+ 
+
+updateIncident(flagObj, flagId){
+  this.redFlaglist.splice(flagId, 1, flagObj)
+  return this.redFlaglist;
+}
 }
 
 export default new redFlag();
