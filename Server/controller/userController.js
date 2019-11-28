@@ -30,7 +30,8 @@ const User = {
   async Login(req, res) {
     try{
       const {password} = req.body;
-    const decryptedPassword =  decryptPassword(password);
+      const hashedPassword = await encryptPassword(password);
+    const decryptedPassword =  decryptPassword(password, hashedPassword);
     const { email} = req.body;
     const user = await UserModel.findOne({
       email,
