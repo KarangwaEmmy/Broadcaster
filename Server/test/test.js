@@ -26,18 +26,4 @@ describe('Testing Authenticatiopn Endpoint', (done) =>{
     })
 });
 
-describe('POST/apiv1/red-flags',() =>{
-    it('should return a new red flag  created',() =>{
-        chai.request(server)
-        .post('/api/v1/red-flags')
-        .send(userData)
-        .set('Authorization', 'Bearer ' + token)
-        .end((err,res) =>{
-            chai.expect(res.body).to.be.a('object');
-            chai.expect(res.statusCode).to.be.equal(201);
-            chai.expect(res.body).to.have.property('status');
-            chai.expect(res.type).to.be.equal('application/json');
-
-        });
-    });
-});
+ 
