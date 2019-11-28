@@ -27,31 +27,31 @@ const User = {
     }
   },
 // Logging the user
-  // async Login(req, res) {
-  //   try{
-  //     const {password} = req.body;
-  //   const decryptedPassword =  decryptPassword(password);
-  //   const { email} = req.body;
-  //   const user = await UserModel.findOne({
-  //     email,
-  //     decryptedPassword
-  //   });
-  //   if (!user) {
-  //     return res.status(400).json({
-  //       status: 400,
-  //       error: 'Wrong credentials, email or password no not match',
-  //     });
-  //   }
-  //   return res.status(200).json({
-  //     status: 200,
-  //     message: ' successfully, user signed in',
-  //     data: user,
-  //   });
-  //   }catch(err){
-  //     return serverError(res);
-  //   }
+  async Login(req, res) {
+    try{
+      const {password} = req.body;
+    const decryptedPassword =  decryptPassword(password);
+    const { email} = req.body;
+    const user = await UserModel.findOne({
+      email,
+      decryptedPassword
+    });
+    if (!user) {
+      return res.status(400).json({
+        status: 400,
+        error: 'Wrong credentials, email or password no not match',
+      });
+    }
+    return res.status(200).json({
+      status: 200,
+      message: ' successfully, user signed in',
+      data: user,
+    });
+    }catch(err){
+      return serverError(res);
+    }
     
-  // }
+  }
 };
 
 export default User;
