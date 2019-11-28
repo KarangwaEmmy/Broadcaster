@@ -42,6 +42,10 @@ class redFlag{
  allRedFlags(){
    return this.redFlaglist;
  }
+ findOne(id) {
+  const oneFlag = this.redFlaglist.find(flag => flag.id === id);
+  return oneFlag;
+}
  
 }
 
