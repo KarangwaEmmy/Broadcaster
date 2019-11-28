@@ -22,7 +22,10 @@ LocationValidation,
 checkToken,
 updateLocation);
 
-
+router.patch('/red-flags/:id/comment',
+CommentValidation,
+checkToken,
+UpdateComment);
 
 
 
