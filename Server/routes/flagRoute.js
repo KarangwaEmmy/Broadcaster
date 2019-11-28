@@ -27,6 +27,9 @@ CommentValidation,
 checkToken,
 UpdateComment);
 
+router.delete('/red-flags/:id',
+checkToken,
+deleteFlag);
 
 
 

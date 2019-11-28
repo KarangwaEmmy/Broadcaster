@@ -47,7 +47,27 @@ const postFlag =  (req, res) => {
         }
       };
 
+
+      const UpdateComment = async (req, res) => {
+          try {
+           const id = Number(req.params.id);
+           if (!id) throw new Error('Invalid red falg ID');
+           const result = redFlag.findOne(id);
+           if (!result) return serverResponse(res, 404, ...['status', 'error', 'error', 'No result found. Enter a valid value and try again.']);
+           const flagArray = redFlag.allRedFlags();
+           const flagData = flagArray.find(flag => flag.id === id);
+           const flagIndex = flagArray.findIndex(flag => flag.id === id);
  
+           const {comment} = req.body;
+           flagData.comment = (flagData.comment === comment) ? flagData.comment : comment;
+           redFlag.updateIncident(flagData, flagIndex);
+           return serverResponse(res, 200, ...['status', 'Success', 'data', flagData]);
+       }
+       
+          catch (err) {
+           return serverError(res);
+          }
+
     const updateLocation = async (req, res) => {
          try {
           const id = Number(req.params.id);
@@ -69,24 +89,19 @@ const postFlag =  (req, res) => {
           return serverError(res);
         }
       }
-        const UpdateComment = async (req, res) => {
-          try {
-           const id = Number(req.params.id);
-           if (!id) throw new Error('Invalid red falg ID');
-           const result = redFlag.findOne(id);
-           if (!result) return serverResponse(res, 404, ...['status', 'error', 'error', 'No result found. Enter a valid value and try again.']);
-           const flagArray = redFlag.allRedFlags();
-           const flagData = flagArray.find(flag => flag.id === id);
-           const flagIndex = flagArray.findIndex(flag => flag.id === id);
- 
-           const {comment} = req.body;
-           flagData.comment = (flagData.comment === comment) ? flagData.comment : comment;
-           redFlag.updateIncident(flagData, flagIndex);
-           return serverResponse(res, 200, ...['status', 'Success', 'data', flagData]);
+     
+           const deleteFlag = async(req, res) => {
+       try{
+        const id = Number(req.params.id);
+        const deletedFlag = await redFlag.deleteredFlag(id);
+        if(deletedFlag){
+            return serverResponse(res, 200, ...['status', 'success', 'data', { message: 'red flag deleted Successfully' }]);
+        }else{
+            return serverResponse(res, 200, ...['status', 'success', 'data', 'ref flag not found, may be was deleted' ]);
+        }
+       }catch(err){
+         return serverError(res);
        }
-       
-          catch (err) {
-           return serverError(res);
-          }
+    }
         }
 export {postFlag, fetchAllFlags, getOneFlag, deleteFlag, updateLocation, UpdateComment}
