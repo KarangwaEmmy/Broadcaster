@@ -20,5 +20,16 @@ const postFlag =  (req, res) => {
         return serverResponse(res, 201, ...['status', '201', 'data', newFlag]);
 
 }
-     
-export {postFlag}
+    const fetchAllFlags = async(req, res) =>{
+        try{
+        const allFlags = await redFlag.allRedFlags();
+        if(allFlags){
+            return serverResponse(res, 200, ...['status', 'success', 'data', allFlags])
+        }
+        }catch(error){
+            return serverError(res);
+        }
+    }
+   
+        
+export {postFlag, fetchAllFlags, getOneFlag, deleteFlag, updateLocation, UpdateComment}

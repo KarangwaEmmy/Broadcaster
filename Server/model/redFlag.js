@@ -39,7 +39,10 @@ class redFlag{
      newRedFlag
     }
  };
-  
+ allRedFlags(){
+   return this.redFlaglist;
+ }
+ 
 }
 
 export default new redFlag();
