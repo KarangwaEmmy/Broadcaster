@@ -77,33 +77,7 @@ describe('Authentication tests',() =>{
         });
     });
 });
-describe('Entry EndPoints Tests',() =>{
-    it('should return a new red flag  created',() =>{
-        chai.request(server)
-        .post('/api/v1/red-flags')
-        .send(entryData)
-        .set('Authorization', 'Bearer ' + token)
-        .end((err,res) =>{
-            chai.expect(res.body).to.be.a('object');
-            chai.expect(res.statusCode).to.be.equal(201);
-            chai.expect(res.body).to.have.property('status');
-            chai.expect(res.type).to.be.equal('application/json');
-
-        });
-    });
-    it('should return all  entries',() =>{
-        chai.request(server)
-        .get('/api/v1/red-flags')
-        .set('Authorization', 'Bearer ' + token)
-        .end((err,res) =>{
-            chai.expect(res.body).to.be.a('object');
-            chai.expect(res.statusCode).to.be.equal(200);
-            chai.expect(res.body).to.have.property('status');
-            chai.expect(res.type).to.be.equal('application/json');
-
-        });
-    });
-});
+ 
 describe('Get/api/v1/red-flags/:id',() =>{
     it('should return  a specific red -flag',() =>{
         chai.request(server)
@@ -123,7 +97,52 @@ describe('Get/api/v1/red-flags/:id',() =>{
     describe('delete/api/v1/red-flags/:id',() =>{
         it('should delete existing red flag',() =>{
             chai.request(server)
-            .delete('/api/v1/red-flags/:id')
+            .patch('/api/v1/red-flags/:id')
+            .set('Authorization', 'Bearer ' + token)
+            .end((err,res) =>{
+                chai.expect(res.body).to.be.a('object');
+                chai.expect(res.statusCode).to.be.equal(200);
+                chai.expect(res.body).to.have.property('status');
+                chai.expect(res.type).to.be.equal('application/json');
+    
+            });
+        });
+    });
+
+    describe('update/api/v1/red-flags/:id/comment',() =>{
+        it('should update existing red flag comment',() =>{
+            chai.request(server)
+            .patch(updateCommentUrl)
+            .set('Authorization', 'Bearer ' + token)
+            .end((err,res) =>{
+                chai.expect(res.body).to.be.a('object');
+                chai.expect(res.statusCode).to.be.equal(200);
+                chai.expect(res.body).to.have.property('status');
+                chai.expect(res.type).to.be.equal('application/json');
+    
+            });
+        });
+    });
+
+    describe('update/api/v1/red-flags/:id/location',() =>{
+        it('should update existing red flag location',() =>{
+            chai.request(server)
+            .delete(flagUpdateLocationUrl)
+            .set('Authorization', 'Bearer ' + token)
+            .end((err,res) =>{
+                chai.expect(res.body).to.be.a('object');
+                chai.expect(res.statusCode).to.be.equal(200);
+                chai.expect(res.body).to.have.property('status');
+                chai.expect(res.type).to.be.equal('application/json');
+    
+            });
+        });
+    });
+
+    describe('Return all entries',() =>{
+        it('should return all  entries',() =>{
+            chai.request(server)
+            .get('/api/v1/red-flags')
             .set('Authorization', 'Bearer ' + token)
             .end((err,res) =>{
                 chai.expect(res.body).to.be.a('object');
