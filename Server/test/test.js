@@ -17,6 +17,13 @@ const loginDetails = {
     email: 'karangwae@gmail.com',
     password: 'karagwa'
 }
+const entryData = {
+            title: 'Effect of the robotics',
+            type: 'red flag',
+            location: 'Kigali',
+            status: 'draft',
+            comment: 'It has been a long time without resting'
+}
 let {token} = userData;
 
 describe('Testing Authenticatiopn Endpoint', (done) =>{
@@ -41,7 +48,7 @@ describe('Testing Authenticatiopn Endpoint', (done) =>{
  const specificflagUrl = '/api/v1/red-flags/:id';
  const updateCommentUrl = '/api/v1/red-flags/:id/comment';
 
-describe(signupurl,() =>{
+describe('Authentication tests',() =>{
     it('should create a new  user',() =>{
         chai.request(server)
         .post(signupurl)
@@ -63,26 +70,67 @@ describe(signupurl,() =>{
         .set('Authorization', 'Bearer ' + token)
         .end((err,res) =>{
             chai.expect(res.body).to.be.a('object');
+            chai.expect(res.statusCode).to.be.equal(200);
+            chai.expect(res.body).to.have.property('status');
+            chai.expect(res.type).to.be.equal('application/json');
+
+        });
+    });
+});
+describe('Entry EndPoints Tests',() =>{
+    it('should return a new red flag  created',() =>{
+        chai.request(server)
+        .post('/api/v1/red-flags')
+        .send(entryData)
+        .set('Authorization', 'Bearer ' + token)
+        .end((err,res) =>{
+            chai.expect(res.body).to.be.a('object');
             chai.expect(res.statusCode).to.be.equal(201);
             chai.expect(res.body).to.have.property('status');
             chai.expect(res.type).to.be.equal('application/json');
 
         });
     });
-});
-describe('POST/apiv1/red-flags',() =>{
-    it('should return a new red flag  created',() =>{
+    it('should return all  entries',() =>{
         chai.request(server)
-        .post('/api/v1/red-flags')
-        .send(userData)
+        .get('/api/v1/red-flags')
         .set('Authorization', 'Bearer ' + token)
         .end((err,res) =>{
             chai.expect(res.body).to.be.a('object');
-            chai.expect(res.statusCode).to.be.equal(422);
+            chai.expect(res.statusCode).to.be.equal(200);
             chai.expect(res.body).to.have.property('status');
             chai.expect(res.type).to.be.equal('application/json');
 
         });
     });
-    it('should ')
 });
+describe('Get/api/v1/red-flags/:id',() =>{
+    it('should return  a specific red -flag',() =>{
+        chai.request(server)
+        .get('/api/v1/red-flags/:id')
+        .set('Authorization', 'Bearer ' + token)
+        .end((err,res) =>{
+            chai.expect(res.body).to.be.a('object');
+            chai.expect(res.statusCode).to.be.equal(200);
+            chai.expect(res.body).to.have.property('status');
+            chai.expect(res.type).to.be.equal('application/json');
+
+        });
+    });
+ 
+    });
+
+    describe('delete/api/v1/red-flags/:id',() =>{
+        it('should delete existing red flag',() =>{
+            chai.request(server)
+            .delete('/api/v1/red-flags/:id')
+            .set('Authorization', 'Bearer ' + token)
+            .end((err,res) =>{
+                chai.expect(res.body).to.be.a('object');
+                chai.expect(res.statusCode).to.be.equal(200);
+                chai.expect(res.body).to.have.property('status');
+                chai.expect(res.type).to.be.equal('application/json');
+    
+            });
+        });
+    });

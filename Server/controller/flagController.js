@@ -24,7 +24,7 @@ const postFlag =  (req, res) => {
         try{
         const allFlags = await redFlag.allRedFlags();
         if(allFlags){
-            return serverResponse(res, 200, ...['status', 'success', 'data', allFlags])
+            return serverResponse(res, 200, ...['status', '200', 'data', allFlags])
         }
         }catch(error){
             return serverError(res);
@@ -53,7 +53,7 @@ const postFlag =  (req, res) => {
            const id = Number(req.params.id);
            if (!id) throw new Error('Invalid red falg ID');
            const result = redFlag.findOne(id);
-           if (!result) return serverResponse(res, 404, ...['status', 'error', 'error', 'No result found. Enter a valid value and try again.']);
+           if (!result) return serverResponse(res, 404, ...['status', '404', 'Message', 'No result found. Enter a valid value and try again.']);
            const flagArray = redFlag.allRedFlags();
            const flagData = flagArray.find(flag => flag.id === id);
            const flagIndex = flagArray.findIndex(flag => flag.id === id);
@@ -61,7 +61,7 @@ const postFlag =  (req, res) => {
            const {comment} = req.body;
            flagData.comment = (flagData.comment === comment) ? flagData.comment : comment;
            redFlag.updateIncident(flagData, flagIndex);
-           return serverResponse(res, 200, ...['status', 'Success', 'data', flagData]);
+           return serverResponse(res, 200, ...['status', '200', 'data', flagData]);
           }
           catch (err) {
            return serverError(res);
@@ -81,7 +81,7 @@ const postFlag =  (req, res) => {
 
           flagData.location = (flagData.location === location) ? flagData.location : location;
           redFlag.updateIncident(flagData, flagIndex);
-          return serverResponse(res, 200, ...['status', 'Success', 'data', flagData]);
+          return serverResponse(res, 200, ...['status', '200', 'data', flagData]);
       }
       
          catch (err) {
@@ -94,9 +94,9 @@ const postFlag =  (req, res) => {
         const id = Number(req.params.id);
         const deletedFlag = await redFlag.deleteredFlag(id);
         if(deletedFlag){
-            return serverResponse(res, 200, ...['status', 'success', 'data', { message: 'red flag deleted Successfully' }]);
+            return serverResponse(res, 200, ...['status', '200', 'data', { message: 'red flag deleted Successfully' }]);
         }else{
-            return serverResponse(res, 200, ...['status', 'success', 'data', 'ref flag not found, may be was deleted' ]);
+            return serverResponse(res, 200, ...['status', '404', 'Message', 'Indicent not found, may be was deleted' ]);
         }
        }catch(err){
          return serverError(res);

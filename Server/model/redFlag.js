@@ -46,7 +46,15 @@ class redFlag{
   const oneFlag = this.redFlaglist.find(flag => flag.id === id);
   return oneFlag;
 }
- 
+deleteredFlag(id){
+  const flagArray = this.redFlaglist;
+  const flagIndex = flagArray.findIndex(flag => flag.id === id);
+  if(flagIndex > -1){
+    flagArray.splice(flagIndex, 1);
+    return true;
+  }
+  return false;
+}
 
 updateIncident(flagObj, flagId){
   this.redFlaglist.splice(flagId, 1, flagObj)

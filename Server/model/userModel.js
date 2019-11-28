@@ -44,27 +44,27 @@ const today = new Date().toLocaleDateString(undefined, {
           return this.userList;
       }
       //For logging in the user
-      // findOne(data) {
-      // const foundUser = this.userList.find(user => user.email === data.email && user.password === data.password);
-      // if(foundUser){
-      //   return {
-      //     token: foundUser.token,
-      //   };
-      // }
-      // return false;
-      // }
+      findOne(data) {
+      const foundUser = this.userList.find(user => user.email === data.email && user.password === data.password);
+      if(foundUser){
+        return {
+          token: foundUser.token,
+        };
+      }
+      return false;
+      }
       // For verifying user validity
-      // findOneWithId(id) {
-      //   const foundUserWithId = this.userList.find(user => user.token === token);
-      //   if (foundUserWithId) {
-      //     return {
-      //       id: foundUserWithId.id,
-      //       token: foundUserWithId.token,
-      //       email: foundUserWithId.email,
-      //       firstname: foundUserWithId.firstname,
-      //     };
-      //   }
-      //   return false;
-      // }
+      findOneWithId(id) {
+        const foundUserWithId = this.userList.find(user => user.token === token);
+        if (foundUserWithId) {
+          return {
+            id: foundUserWithId.id,
+            token: foundUserWithId.token,
+            email: foundUserWithId.email,
+            firstname: foundUserWithId.firstname,
+          };
+        }
+        return false;
+      }
   }
   export default new Users();

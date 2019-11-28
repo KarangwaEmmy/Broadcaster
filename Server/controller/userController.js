@@ -2,8 +2,8 @@ import UserModel from '../model/userModel';
 import { serverError, serverResponse } from '../Helper/Response';
 import { encryptPassword, decryptPassword } from '../Helper/encrypt';
 
-const User = {
 
+const User = {
   async create(req, res) {
     try{
       const allUsers = UserModel.findAllUsers();
