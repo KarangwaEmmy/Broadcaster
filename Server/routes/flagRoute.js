@@ -1,11 +1,14 @@
 import { Router } from 'express';
-import { Validation} from '../middleware/Validation';
+import multer from 'multer'
+import { IncidentValidator,LocationValidation, CommentValidation} from '../Middleware/Validations';
 import {checkToken} from '../Middleware/Auth'
 import  {postFlag, fetchAllFlags, getOneFlag, deleteFlag, updateLocation, UpdateComment} from '../controller/flagController';
 
-const { IncidentValidator,LocationValidation, CommentValidation} = Validation;
+const  upload = multer({ dest: 'uploads/' });
+const uploadPath = upload.array('files', 12);
+
 const router = Router();
-router.post('/red-flags',checkToken,IncidentValidator,  postFlag);
+router.post('/red-flags',checkToken,IncidentValidator, uploadPath, postFlag);
 
 router.get('/red-flags',checkToken, fetchAllFlags);
 
