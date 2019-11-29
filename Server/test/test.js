@@ -28,6 +28,7 @@ const entryData = {
 }
 let {token} = userData;
 let {userToken} = loginDetails;
+const generateToken = tokenObj => jwt.sign(tokenObj, process.env.SECRET_KEY);
 
 describe('Testing Authenticatiopn Endpoint', (done) =>{
     it('should you welcome to the broadcaster endpoint page', (done) =>{
@@ -56,7 +57,7 @@ describe('Authentication tests',() =>{
         chai.request(server)
         .post(signupurl)
         .send(userData)
-        .set('Authorization',  + token)
+        .set('Authorization',  + generateToken)
         .end((err,res) =>{
             chai.expect(res.body).to.be.a('object');
             chai.expect(res.statusCode).to.be.equal(201);
@@ -70,7 +71,7 @@ describe('Authentication tests',() =>{
         chai.request(server)
         .post(loginUrl)
         .send(loginDetails)
-        .set('Authorization', 'Bearer ' + token)
+        .set('Authorization', 'Bearer ' + generateToken)
         .end((err,res) =>{
             chai.expect(res.body).to.be.a('object');
             chai.expect(res.statusCode).to.be.equal(200);

@@ -2,28 +2,6 @@
 [![Coverage Status](https://coveralls.io/repos/github/KarangwaEmmy/Broadcaster/badge.svg?branch=develop)](https://coveralls.io/github/KarangwaEmmy/Broadcaster?branch=develop)
 [![Build Status](https://travis-ci.org/KarangwaEmmy/Broadcaster.svg?branch=develop)](https://travis-ci.org/KarangwaEmmy/Broadcaster)
 
-## UI FEATURES
-a. User sign-up page.
-b. User sign-in page.
-c. A page/pages where a user can do the following:
-i. Create a ​red-flag​ record.
-ii. Create an ​intervention​ record.
-iii. Delete a ​red-flag​ or ​intervention​ record.
-iv. Add images to either ​red-flag ​or ​intervention ​record.
-v. Add videos to either ​red-flag ​or ​intervention ​record.
-vi. Add geolocation (Lat Long Coordinates) to either a ​red-flag​ or an
-intervention​ record.
-vii. View all ​red-flag​ or ​intervention ​records an individual user has created.
-d. A page/pages for a user’s profile which, at minimum displays:
-i. The number of ​red-flag/intervention ​records that has been ​resolved​.
-ii. The number of ​red-flag/intervention ​records that are yet to be resolved (in
-the ​draft​ or ​under investigation ​states).
-iii. The number of ​red-flag/intervention ​records that have been ​rejected.
-iv. List of all ​red-flag/intervention​ records.
-e. A page/pages where an Admin can do the following:
-i. Change the ​status​ of ​red-flag/intervention ​records.
-ii. List of all ​red-flag/intervention​ records created by all users
-
 ## API features
 
 ○ User signup.
