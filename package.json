@@ -4,7 +4,7 @@
   "description": "broadcaster API",
   "main": "index.js",
   "scripts": {
-    "start": " npm run build && --require  @babel/polyfill build/index.js",
+    "start": " npm run build && node --require  @babel/polyfill build/index.js",
     "build": "babel Server --out-dir build",
     "clean": "rm -rf build && mkdir build",
     "lint": "eslint .",
