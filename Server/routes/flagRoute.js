@@ -1,5 +1,4 @@
 import { Router } from 'express';
-import '@babel/polyfill';
 import { IncidentValidator,LocationValidation, CommentValidation} from '../middleware/Validation';
 import {checkToken} from '../Middleware/Auth'
 import  {postFlag, fetchAllFlags, getOneFlag, deleteFlag, updateLocation, UpdateComment} from '../controller/flagController';
