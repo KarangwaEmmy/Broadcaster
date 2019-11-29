@@ -26,8 +26,8 @@ POST       | `/signup`|  True           |Create a New User
 POST       | `/signin`|  True           |Login The existing User 
 
 ## Authentication Heroku Routes
-1. https://broadcaster12.herokuapp.com/api/v1/auth/signup  (creating new account)
-2. https://broadcaster12.herokuapp.com/api/v1/auth/login   (logging in)
+1. https://broadcaster15.herokuapp.com/api/v1/auth/signup  (creating new account)
+2. https://broadcaster15.herokuapp.com/api/v1/auth/login   (logging in)
 
 ### Red-flags End POINTS
 
@@ -41,18 +41,18 @@ PATCH      | `/red-flags/:id/location`| update red-flags's location
 DELETE     | `/red-flags/:id`        | Delete a red-flag
 
 ## Entry Endpoints Heroku routes
-1. https://broadcaster12.herokuapp.com/api/v1/red-flags  (post new red -flag)
-2. https://broadcaster12.herokuapp.com/api/v1/red-flags  (fetch all red flags)
-3. https://broadcaster12.herokuapp.com/api/v1/red-flags/:id (fetch by ID)
-4. https://broadcaster12.herokuapp.com/api/v1/red-flags/:id  (delete red flag)
-5. https://broadcaster12.herokuapp.com/api/v1/red-flags/:id/location (update location of red flag)   
-6. https://broadcaster12.herokuapp.com/api/v1/red-flags/:id/comment   (update the comment of red flag)
+1. https://broadcaster15.herokuapp.com/api/v1/red-flags  (post new red -flag)
+2. https://broadcaster15.herokuapp.com/api/v1/red-flags  (fetch all red flags)
+3. https://broadcaster15.herokuapp.com/api/v1/red-flags/:id (fetch by ID)
+4. https://broadcaster15.herokuapp.com/api/v1/red-flags/:id  (delete red flag)
+5. https://broadcaster15.herokuapp.com/api/v1/red-flags/:id/location (update location of red flag)   
+6. https://broadcaster15.herokuapp.com/api/v1/red-flags/:id/comment   (update the comment of red flag)
 
 gh-page can be found 
 `https://karangwaemmy.github.io/Broadcaster/UI/html`
 
 App can be found on heroku at:
-`https://broadcaster12.herokuapp.com/`
+`https://broadcaster15.herokuapp.com/`
 
 License `ISC`
 
