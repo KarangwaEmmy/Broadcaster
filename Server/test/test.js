@@ -129,7 +129,6 @@ describe('Red flags Tests',() =>{
             .delete('/api/v1/red-flags/:id')
             .set('Authorization', 'Bearer ' + token)
             .end((err,res) =>{
-            chai.expect(res.body).to.be.a('object');
             chai.expect(res.type).to.be.equal('application/json');
             });
         });
