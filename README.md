@@ -3,6 +3,7 @@
 
 ## API features
 
+
 ○ User signup.
 ○ User sign in.
 ○ Get all diary entries.

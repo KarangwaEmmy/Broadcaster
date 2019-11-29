@@ -2,8 +2,8 @@ import jwt from 'jsonwebtoken';
 import 'dotenv/config';
 import { authenticationResponse } from '../Helper/Response';
 
-const expireTime = '1d';
-const generateToken = tokenObj => jwt.sign(tokenObj, process.env.SECRET_KEY, expireTime);
+
+const generateToken = tokenObj => jwt.sign(tokenObj, process.env.SECRET_KEY);
 const checkToken = (req, res, next) => {
   try {
     const header = req.headers['x-auth-token'] || req.headers.authorization;
