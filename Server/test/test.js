@@ -26,9 +26,11 @@ const entryData = {
             status: 'draft',
             comment: 'It has been a long time without resting'
 }
-let {token} = userData;
-let {userToken} = loginDetails;
+// let {token} = userData;
+// let {userToken} = loginDetails;
 const generateToken = tokenObj => jwt.sign(tokenObj, process.env.SECRET_KEY);
+
+ const token = (generateToken(userData));
 
 describe('Testing Authenticatiopn Endpoint', (done) =>{
     it('should you welcome to the broadcaster endpoint page', (done) =>{
@@ -57,7 +59,7 @@ describe('Authentication tests',() =>{
         chai.request(server)
         .post(signupurl)
         .send(userData)
-        .set('Authorization',  + generateToken)
+        .set('Authorization', 'Bearer ' + token)
         .end((err,res) =>{
             chai.expect(res.body).to.be.a('object');
             chai.expect(res.statusCode).to.be.equal(201);
@@ -71,7 +73,7 @@ describe('Authentication tests',() =>{
         chai.request(server)
         .post(loginUrl)
         .send(loginDetails)
-        .set('Authorization', 'Bearer ' + generateToken)
+        .set('Authorization', 'Bearer ' + token)
         .end((err,res) =>{
             chai.expect(res.body).to.be.a('object');
             chai.expect(res.statusCode).to.be.equal(200);
@@ -82,18 +84,20 @@ describe('Authentication tests',() =>{
     });
 });
  
-// describe('Get all red -flags', () => {
-//     it('should successfully view all red flags', (done) => {
-//       chai.request(server)
-//         .get('/api/v1/red-flags/')
-//         .set('Authorization', 'Bearer ' + token)
-//         .end((err, res) => {
-//           expect(res.body.status).to.equal('success');
-//           expect(res.statusCode).to.equal(200);
-//         });
-//       done();
-//     });
-// });
+describe('Get all red -flags', () => {
+    it('should successfully view all red flags', (done) => {
+      chai.request(server)
+        .get('/api/v1/red-flags/')
+        .set('Authorization', 'Bearer ' + token)
+        .end((err, res) => {
+            chai.expect(res.body).to.be.a('object');
+            chai.expect(res.statusCode).to.equal(200);
+            chai.expect(res.type).to.be.equal('application/json');
+        });
+      done();
+    });
+});
+
 describe('Red flags Tests',() =>{
     it('Add a new red  flag',() =>{
         chai.request(server)
@@ -102,21 +106,13 @@ describe('Red flags Tests',() =>{
         .set('Authorization', 'Bearer ' + token)
         .end((err,res) =>{
             chai.expect(res.body).to.be.a('object');
+            expect(res.statusCode).to.equal(201);
             chai.expect(res.type).to.be.equal('application/json');
             chai.expect(res.body).to.have.property('status');
 
         });
     });
-    it('should return  a specific red -flag',() =>{
-        chai.request(server)
-        .get('/api/v1/red-flags/:id')
-        .set('Authorization', 'Bearer ' + token)
-        .end((err,res) =>{
-            chai.expect(res.body).to.be.a('object');
-            chai.expect(res.type).to.be.equal('application/json');
-            chai.expect(res.body).to.have.property('status');
-
-        });
+   
     });
         it('should return all  entries',() =>{
             chai.request(server)
@@ -163,8 +159,6 @@ describe('Red flags Tests',() =>{
             });
         });
    
- 
-    });
     
     describe('verifyToken',() =>{
         it('it should respond with  authorisation header',function (){
@@ -179,4 +173,16 @@ describe('Red flags Tests',() =>{
         });
     });
 
-  
+    describe('return  a specific red -flag', () => {
+        it('should return  a specific red -flag',() =>{
+            chai.request(server)
+            .get('/api/v1/red-flags/:id')
+            .set('Authorization', 'Bearer ' + token)
+            .end((err,res) =>{
+                chai.expect(res.body).to.be.a('object');
+                chai.expect(res.statusCode).to.equal(200);
+                chai.expect(res.type).to.be.equal('application/json');
+    
+            });
+    });
+});
