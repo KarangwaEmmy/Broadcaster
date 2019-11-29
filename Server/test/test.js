@@ -15,6 +15,7 @@ const userData = {
     password: 'karagwa'
 }
 
+
 const loginDetails = {
     email: 'karangwae@gmail.com',
     password: 'karagwa'
@@ -106,7 +107,6 @@ describe('Red flags Tests',() =>{
         .set('Authorization', 'Bearer ' + token)
         .end((err,res) =>{
             chai.expect(res.body).to.be.a('object');
-            expect(res.statusCode).to.equal(201);
             chai.expect(res.type).to.be.equal('application/json');
             chai.expect(res.body).to.have.property('status');
 
