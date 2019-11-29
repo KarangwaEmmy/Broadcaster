@@ -52,6 +52,7 @@ const Uploadedimages = files[0].path;
 const Uploadedvideos = files[1].path;
 
 const incidentSchema = Joi.object().keys({
+    createdBy: Joi.string().min(3).max(255).trim(),
     title: Joi.string().min(3).max(255).trim(),
     type: Joi.string().min(3).max(255).label('red flag', 'intervention').trim(),
     location: Joi.string().min(3).max(255).required(),
