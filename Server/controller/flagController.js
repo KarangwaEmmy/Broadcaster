@@ -61,7 +61,11 @@ const postFlag =  (req, res) => {
            const {comment} = req.body;
            flagData.comment = (flagData.comment === comment) ? flagData.comment : comment;
            redFlag.updateIncident(flagData, flagIndex);
-           return serverResponse(res, 200, ...['status', '200', 'data', flagData]);
+           return res.status(201).json({
+            status: 200,
+            message: ' Comment was Updated successfully!',
+            data: flagData,
+          });
           }
           catch (err) {
            return serverError(res);
@@ -81,7 +85,11 @@ const postFlag =  (req, res) => {
 
           flagData.location = (flagData.location === location) ? flagData.location : location;
           redFlag.updateIncident(flagData, flagIndex);
-          return serverResponse(res, 200, ...['status', '200', 'data', flagData]);
+          return res.status(201).json({
+            status: 200,
+            message: ' Location was Updated successfully!',
+            data: flagData,
+          });
       }
       
          catch (err) {
