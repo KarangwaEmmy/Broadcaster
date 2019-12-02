@@ -17,7 +17,7 @@ class redFlag{
 
  postRedFlag(data){
    const redId = this.redFlaglist.length + 1;
-    const {title, type, location, status, images, videos, comment, createdBy ,isAdmin} = data;
+    const {title, type, location, status, images, videos, comment, createdBy} = data;
 
    const newRedFlag = {
      id: redId,
@@ -29,7 +29,6 @@ class redFlag{
      videos: data.videos,
      comment: data.comment,
      createdBy: data.createdBy,
-     isAdmin: 'false',
      created_on: today
    }
 

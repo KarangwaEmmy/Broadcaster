@@ -4,7 +4,7 @@ import User from '../model/userModel';
 
 const postFlag =  (req, res) => {
     const {images,videos} = req.file;
-    const {title, type, location, status, comment, createdBy,isAdmin } = req.body;
+    const {title, type, location, status, comment, createdBy } = req.body;
 
         const newFlag =  redFlag.postRedFlag({
         title, 
@@ -14,7 +14,6 @@ const postFlag =  (req, res) => {
         images,
         videos,
         comment,
-        isAdmin,
         createdBy
         });
         return serverResponse(res, 201, ...['status', '201', 'data', newFlag]);

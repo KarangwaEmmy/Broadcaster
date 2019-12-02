@@ -6,6 +6,7 @@ import flagRoute from './routes/flagRoute'
 const app = express();
 
 app.use(express.json());
+app.use(bodyparser.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => res.send({

@@ -1,4 +1,5 @@
 import Joi from 'joi'
+import ImageExtension from 'joi-image-extension';
 import { serverResponse } from '../Helper/Response'
 
 const userSchema = Joi.object().keys({
@@ -47,19 +48,21 @@ const SignupValidator = (req, res, next) => {
 }
 
 const IncidentValidator = (req, res, next) => {
-  const {files} = req;
-const Uploadedimages = files[0].path;
-const Uploadedvideos = files[1].path;
+//   const {files} = req;
+// const Uploadedimages = req.files[0].filepath;
+// const Uploadedvideos = req.files[1].filepath;
+
+const JOiImage = Joi.extend(ImageExtension)
 
 const incidentSchema = Joi.object().keys({
     createdBy: Joi.string().min(3).max(255).trim(),
     title: Joi.string().min(3).max(255).trim(),
     type: Joi.string().min(3).max(255).label('red flag', 'intervention').trim(),
-    location: Joi.string().min(3).max(255).required(),
+    location: Joi.string().min(3).max(255),
+    images: JOiImage.image().minDimensions(100, 50),
+    videos: JOiImage.image(),
     status: Joi.string().label('draft', 'under investigation', 'resolved', 'rejected').trim(),
     comment: Joi.string().min(3).max(255),
-    images: [Uploadedimages],
-    videos: [Uploadedvideos]
 })
   let { title, type, comment} = req.body;
   return Joi.validate(req.body, incidentSchema, (error, value) =>{
