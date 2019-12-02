@@ -1,7 +1,7 @@
 import express from 'express';
 import bodyparser from 'body-parser';
-import userRouter from './routes/userRouter';
-import flagRoute from './routes/flagRoute'
+import userRouter from './V1/routes/userRouter';
+import flagRoute from './V1/routes/flagRoute'
 
 const app = express();
 

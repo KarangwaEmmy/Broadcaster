@@ -1,7 +1,7 @@
 import chai from 'chai';
 import 'dotenv/config';
 import chaiHttp from 'chai-http';
-import server from '../index';
+import server from '../../index';
 const jwt = require('jsonwebtoken');
 
 const {expect} = chai;
