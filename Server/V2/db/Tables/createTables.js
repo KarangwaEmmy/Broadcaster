@@ -26,9 +26,8 @@ const alltables = `
                     status VARCHAR(128) NOT NULL,
                     image_url VARCHAR(128) NOT NULL,
                     video_url VARCHAR(128) NOT NULL,
-                    comment VARCHAR(255) NOT NULL, 
-                    );                  
-                    
+                    comment VARCHAR(255) NOT NULL
+                    );                                   
 `;
 
 
