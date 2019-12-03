@@ -5,7 +5,7 @@ import userRouter from './V1/routes/userRouter';
 import flagRouter from './V1/routes/flagRouter';
 // V1
 import userRoute from './V2/routes/userRoute';
-import flagRoute from './V2/routes/flagRoute';
+// import flagRoute from './V2/routes/flagRoute';
 
 const app = express();
 
@@ -21,10 +21,10 @@ app.get('/', (req, res) => res.send({
 }));
 
 app.use('/api/v1/auth', userRouter);
-app.use('/api/v1', flagRouter);
+ app.use('/api/v1', flagRouter);
 // V2
 app.use('/api/v1/auth', userRoute);
-app.use('/api/v1', flagRoute);
+// app.use('/api/v1', flagRoute);
 
 let port = process.env.PORT || 8000;
 

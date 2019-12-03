@@ -2,7 +2,7 @@ import dbQuery from '../config';
 
 const sqlQueries = {};
 
-const allalltables = `
+const alltables = `
                CREATE TABLE IF NOT EXISTS users(
                   id SERIAL PRIMARY KEY,
                   email VARCHAR(128) UNIQUE NOT NULL,
