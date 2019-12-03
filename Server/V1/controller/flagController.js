@@ -2,11 +2,35 @@ import { serverError, serverResponse } from '../Helper/Response'
 import redFlag from '../model/redFlag';
 import User from '../model/userModel';
 
-const postFlag =  (req, res) => {
-    const {images,videos} = req.file;
+const postFlag =  async(req, res) => {
+  if (req.fileValidationError) {
+    return res.send({ error: req.fileValidationError });
+  }
+  const images = [];
+  const videos = [];
+  const { files } = req;
+
+  const newFlag = req.body;
+  if (files !== undefined) {
+    if (files.length <= 0) {
+      newFlag.images = [];
+      newFlag.videos = [];
+    } else {
+      files.forEach((file) => {
+        if (file.mimetype === 'image/png' || file.mimetype === 'image/jpeg' || file.mimetype === 'image/pjpeg') {
+          images.push(`/public/uploads/${file.filename}`);
+        } else {
+          videos.push(`/public/uploads/${file.filename}`);
+        }
+      });
+    }
+  }
+
+  newFlag.images = images;
+  newFlag.videos = videos;
     const {title, type, location, status, comment, createdBy } = req.body;
 
-        const newFlag =  redFlag.postRedFlag({
+        await  redFlag.postRedFlag({
         title, 
         type,
         location,

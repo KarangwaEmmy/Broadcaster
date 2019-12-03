@@ -1,16 +1,23 @@
-import multer from 'multer';
 import path from 'path';
+import multer from 'multer';
+import { serverResponse } from '../Helper/Response'
+ 
+const uploadedFiles= multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, path.join(__dirname, './../../../Server/public/uploads'));
+  },
+  filename: (req, file, cb) => {
+    const extensions = ['image/png', 'image/jpeg', 'image/pjpeg', 'video/mp4', 'application/x-mpegURL'];
 
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, path.join(__dirname, '../uploads'));
-    },
-    filename: function (req, file, cb) {
-      cb(null, file.fieldname + '-' + Date.now())
+    if (extensions.indexOf(file.mimetype) === -1) {
+     const  message = `${file.originalname} is invaliid. Enter a valid image or video and try again.`
+      cb(message, null);
     }
-  })
-  
-  const uploadImage = multer({ storage: storage }).single('image');
-  const uploadVideo = multer({storage: storage}).single('video');
 
-  export {uploadImage, uploadVideo};
+    const filename = `${Date.now()}-${file.originalname}`;
+    cb(null, filename);
+  },
+ 
+});
+
+export const uploadFiles = multer({ storage: uploadedFiles }).array('files', 6);
