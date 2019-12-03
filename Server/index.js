@@ -1,5 +1,6 @@
 import express from 'express';
 import bodyparser from 'body-parser';
+import path from  'path';
 import userRouter from './V1/routes/userRouter';
 import flagRoute from './V1/routes/flagRoute'
 
@@ -8,6 +9,7 @@ const app = express();
 app.use(express.json());
 app.use(bodyparser.json());
 app.use(express.urlencoded({ extended: true }));
+app.use('/public', express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req, res) => res.send({
   status:(200),

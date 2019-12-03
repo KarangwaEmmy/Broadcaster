@@ -25,8 +25,8 @@ class redFlag{
      type: data.type,
      location: data.location,
      status: data.status,
-     images: data.images,
-     videos: data.videos,
+     images: data.images || [],
+     videos: data.videos || [],
      comment: data.comment,
      createdBy: data.createdBy,
      created_on: today
