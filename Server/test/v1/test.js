@@ -1,52 +1,52 @@
-// import chai from 'chai';
-// import 'dotenv/config';
-// import chaiHttp from 'chai-http';
-// import server from '../../index';
-// const jwt = require('jsonwebtoken');
+import chai from 'chai';
+import 'dotenv/config';
+import chaiHttp from 'chai-http';
+import server from '../../index';
+const jwt = require('jsonwebtoken');
 
-// const {expect} = chai;
-// chai.use(chaiHttp);
-// const userData = {
-//     firstname: 'Emmy', 
-//     lastname: 'Karangwa',  
-//     email: 'karangwae@gmail.com',
-//     phoneNumber: '0786639530',
-//     username: 'Kemmy',
-//     password: 'karagwa'
-// }
+const {expect} = chai;
+chai.use(chaiHttp);
+const userData = {
+    firstname: 'Emmy', 
+    lastname: 'Karangwa',  
+    email: 'karangwae@gmail.com',
+    phoneNumber: '0786639530',
+    username: 'Kemmy',
+    password: 'karagwa'
+}
 
 
-// const loginDetails = {
-//     email: 'karangwae@gmail.com',
-//     password: 'karagwa'
-// }
-// const entryData = {
-//             title: 'Effect of the robotics',
-//             type: 'red flag',
-//             location: 'Kigali',
-//             status: 'draft',
-//             comment: 'It has been a long time without resting'
-// }
-// // let {token} = userData;
-// // let {userToken} = loginDetails;
-// const generateToken = tokenObj => jwt.sign(tokenObj, process.env.SECRET_KEY);
+const loginDetails = {
+    email: 'karangwae@gmail.com',
+    password: 'karagwa'
+}
+const entryData = {
+            title: 'Effect of the robotics',
+            type: 'red flag',
+            location: 'Kigali',
+            status: 'draft',
+            comment: 'It has been a long time without resting'
+}
+// let {token} = userData;
+// let {userToken} = loginDetails;
+const generateToken = tokenObj => jwt.sign(tokenObj, process.env.SECRET_KEY);
 
-//  const token = (generateToken(userData));
+ const token = (generateToken(userData));
 
-// describe('Testing Authenticatiopn Endpoint', (done) =>{
-//     it('should you welcome to the broadcaster endpoint page', (done) =>{
-//         chai.request(server)
-//         .get('/')
-//         .end((err, res) => {
-//             if(err) return done(err);
-//             chai.expect(res.statusCode).to.be.equal(200);
-//             expect((res.text)).to.be.a('string');
-//             done();
-//         })
-//     });
+describe('Testing Authenticatiopn Endpoint', (done) =>{
+    it('should you welcome to the broadcaster endpoint page', (done) =>{
+        chai.request(server)
+        .get('/')
+        .end((err, res) => {
+            if(err) return done(err);
+            chai.expect(res.statusCode).to.be.equal(200);
+            expect((res.text)).to.be.a('string');
+            done();
+        })
+    });
 
-// });
-// // routes urls
+});
+// routes urls
 //  const signupurl = '/api/v1/auth/signup';
 //  const loginUrl = '/api/v1/auth/login';
 //  const flagUpdateLocationUrl = '/api/v1/red-flags/:id/location';
