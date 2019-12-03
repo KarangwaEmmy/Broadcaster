@@ -118,7 +118,7 @@ describe('Red flags Tests',() =>{
             chai.request(server)
             .get('/api/v1/red-flags')
             .end((err,res) =>{
-                chai.expect(res.body).to.be.a('object');
+            chai.expect(res.body).to.be.a('object');
             chai.expect(res.type).to.be.equal('application/json');
             chai.expect(res.body).to.have.property('status');
     
@@ -129,7 +129,8 @@ describe('Red flags Tests',() =>{
             .delete('/api/v1/red-flags/:id')
             .set('Authorization', 'Bearer ' + token)
             .end((err,res) =>{
-            chai.expect(res.type).to.be.equal('application/json');
+            expect(res.body).to.be.a('object');
+            expect(res.body).to.have.property('status');
             });
         });
         it('should update existing red flag comment',() =>{
