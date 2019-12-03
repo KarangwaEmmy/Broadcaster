@@ -8,7 +8,8 @@ const userSchema = Joi.object().keys({
     email: Joi.string().min(3).max(255).required(),
     phoneNumber: Joi.number().integer().min(10).required(),
     username: Joi.string().min(3).max(12).required(),
-    password: Joi.string().min(4).regex(/^[a-zA-Z0-9]{3,30}$/).required().trim()
+    password: Joi.string().min(4).regex(/^[a-zA-Z0-9]{3,30}$/).required()
+
 });
 
 
@@ -48,20 +49,17 @@ const SignupValidator = (req, res, next) => {
 }
 
 const IncidentValidator = (req, res, next) => {
-//   const {files} = req;
-// const Uploadedimages = req.files[0].filepath;
-// const Uploadedvideos = req.files[1].filepath;
 
 const JOiImage = Joi.extend(ImageExtension)
 
 const incidentSchema = Joi.object().keys({
     createdBy: Joi.string().min(3).max(255).trim(),
     title: Joi.string().min(3).max(255).trim(),
-    type: Joi.string().min(3).max(255).label('red flag', 'intervention').trim(),
+    type: Joi.string().min(3).max(255).valid('red flag', 'intervention').required(),
     location: Joi.string().min(3).max(255),
     images: JOiImage.image().minDimensions(100, 50),
     videos: JOiImage.image(),
-    status: Joi.string().label('draft', 'under investigation', 'resolved', 'rejected').trim(),
+    status: Joi.string().valid('draft', 'under investigation', 'resolved', 'rejected').required(),
     comment: Joi.string().min(3).max(255),
 })
   let { title, type, comment} = req.body;

@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "create": "babel-node Server/V2/db/Tables/createTables",
-    "drop": "babel/node Server/V2/db/Tables/dropTables",
+    "drop": "babel-node Server/V2/db/Tables/dropTables",
+    "dev": "nodemon --exec babel/node  Server/index.js",
     "start": " npm run build && node --require  @babel/register Server/index.js",
     "build": "babel Server --out-dir build",
     "clean": "rm -rf build && mkdir build",
