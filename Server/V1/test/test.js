@@ -124,15 +124,15 @@ describe('Red flags Tests',() =>{
     
             });
         });
-        it('should delete existing red flag',() =>{
-            chai.request(server)
-            .delete('/api/v1/red-flags/:id')
-            .set('Authorization', 'Bearer ' + token)
-            .end((err,res) =>{
-            expect(res.body).to.be.a('object');
-            expect(res.body).to.have.property('status');
-            });
-        });
+        // it('should delete existing red flag',() =>{
+        //     chai.request(server)
+        //     .delete('/api/v1/red-flags/:id')
+        //     .set('Authorization', 'Bearer ' + token)
+        //     .end((err,res) =>{
+        //     expect(res.body).to.be.a('object');
+        //     expect(res.body).to.have.property('status');
+        //     });
+        // });
         it('should update existing red flag comment',() =>{
             chai.request(server)
             .patch('/api/v1/red-flags/:id/comment')
