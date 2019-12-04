@@ -20,13 +20,13 @@ app.get('/', (req, res) => res.send({
   + 'The platform of reg flags and intervations'
 }));
 
-app.use('/api/v1/auth', userRouter);
- app.use('/api/v1', flagRouter);
+// app.use('/api/v1/auth', userRouter);
+//  app.use('/api/v1', flagRouter);
 // V2
-app.use('/api/v1/auth', userRoute);
-// app.use('/api/v1', flagRoute);
+app.use('/api/v2/auth', userRoute);
+// app.use('/api/v2', flagRoute);
 
-let port = process.env.PORT || 8000;
+let port = process.env.PORT || 6000;
 
 const server = app.listen(port, console.log(`App running on port ${port}`));
 

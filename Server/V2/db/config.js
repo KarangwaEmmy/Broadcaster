@@ -1,25 +1,31 @@
-import dotenv from 'dotenv';
 import { Pool } from 'pg';
+import dotenv from 'dotenv';
 import '@babel/polyfill';
 
 dotenv.config();
 
- let pool=new Pool({connectionString: process.env.DATABASE_URL});
+let url;
+if(process.env.NODE_ENV === 'test'){
+  url =process.env.DATABASE_URL_TEST;
+}else{
+  url =process.env.DATABASE_URL;
+}
 
-const connectDb = async () => pool.connect();
-// use async for a function that will have to wait for another one to complete the task.
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+});
 
-const dbQuery = async (sql, data = []) => {
-  const connection = await connectDb();
-  try {
-    const result = await connection.query(sql, data);
-    return result.rows;
-  } catch (error) {
-    // Error handling
-    console.log(error.message);
-  } finally {
-    // close the pool or the databasee
-    connection.release();
-  }
+export default {
+
+  query(text, params) {
+    return new Promise((resolve, reject) => {
+      pool.query(text, params)
+        .then((res) => {
+          resolve(res);
+        })
+        .catch((err) => {
+          reject(err);
+        });
+    });
+  },
 };
-export default dbQuery;
