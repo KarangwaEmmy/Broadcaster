@@ -1,7 +1,7 @@
 
 import db from '../db/config';
 import sql from '../db/sqlQueries';
-import { encryptPassword, decryptPassword } from '../Helper/encrypt';
+import { encryptPassword } from '../Helper/encrypt';
 
   class Users  {
 
@@ -67,5 +67,50 @@ import { encryptPassword, decryptPassword } from '../Helper/encrypt';
           return error;
         }
         }
+            // checking password mail exists
+            async checkPassword(pass) {
+              const text = 'SELECT * FROM users WHERE password =$1';
+            try{
+              const {row} = await db.query(text, [pass])
+              return row;
+            }catch(error){
+              return error;
+            }
+            }
+
+        // Sign in
+
+        async findOne(data) {
+          const text = 'SELECT * FROM users WHERE email = $1 ';
+      
+          try {
+            const { rows } = await db.query(text, [data]);
+            return rows;
+          } catch (error) {
+            return false;
+          }
+        }
+    // For verifying user validity
+    async findOneWithId(id) {
+      const text = 'SELECT * FROM users WHERE id = $1';
+  
+      try {
+        const { rows } = await db.query(text, [id]);
+        if (!rows[0]) {
+          return false;
+        }
+        const foundUserWithId = rows[0];
+        if (foundUserWithId) {
+          return {
+            id: foundUserWithId.id,
+            email: foundUserWithId.email,
+            username: foundUserWithId.username,
+          };
+        }
+        return false;
+      } catch (error) {
+        return false;
+      }
+    }
   }
   export default new Users();
