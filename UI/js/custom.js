@@ -8,37 +8,6 @@ function myFunction(){
     }
 }
 
-    // comment JS
-
-    var likeIcon = document.getElementById("like"),
-    likeCounter = likeIcon.nextElementSibling,
-    loveIcon = document.getElementById("love"),
-    loveCounter = loveIcon.nextElementSibling
-    
-    likeIcon.addEventListener("click", function () {
-    this.classList.toggle("like");
-    var numberOfLikes = Number(likeCounter.textContent);
-    if (this.classList.contains("like")) {
-        numberOfLikes++;
-        likeCounter.textContent = numberOfLikes;
-    } else {
-        numberOfLikes--;
-        likeCounter.textContent = numberOfLikes;
-    }
-    });
-    
-    loveIcon.addEventListener("click", function () {
-    this.classList.toggle("love");
-    var numberOfLoves = Number(loveCounter.textContent);
-    if (this.classList.contains("love")) {
-        numberOfLoves++;
-        loveCounter.textContent = numberOfLoves;
-    } else {
-        numberOfLoves--;
-        loveCounter.textContent = numberOfLoves;
-    }
-    });
-
 // ckeditor
 
 ClassicEditor

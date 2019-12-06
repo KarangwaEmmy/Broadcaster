@@ -70,9 +70,7 @@ const SignupValidator = async (req, res, next) => {
 };
 
 const IncidentValidator = (req, res, next) => {
-//   const {files} = req;
-// const Uploadedimages = req.files[0].filepath;
-// const Uploadedvideos = req.files[1].filepath;
+
 
   const JOiImage = Joi.extend(ImageExtension);
 
