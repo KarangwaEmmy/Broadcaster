@@ -3,7 +3,9 @@ import 'dotenv/config';
 import { authenticationResponse } from '../Helper/Response';
 
 
-const generateToken = tokenObj => jwt.sign(tokenObj, process.env.SECRET_KEY);
+const generateToken = (tokenObj) => jwt.sign(tokenObj, process.env.SECRET_KEY,
+  { expiresIn: 604800 });
+
 const checkToken = (req, res, next) => {
   try {
     const header = req.headers['x-auth-token'] || req.headers.authorization;
