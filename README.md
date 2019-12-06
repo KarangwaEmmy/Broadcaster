@@ -1,7 +1,7 @@
 # Broadcaster
 [![Coverage Status](https://coveralls.io/repos/github/KarangwaEmmy/Broadcaster/badge.svg?branch=develop)](https://coveralls.io/github/KarangwaEmmy/Broadcaster?branch=develop)
 [![Build Status](https://travis-ci.org/KarangwaEmmy/Broadcaster.svg?branch=develop)](https://travis-ci.org/KarangwaEmmy/Broadcaster)
-<a href="https://codeclimate.com/github/KarangwaEmmy/Broadcaster/test_coverage"><img src="https://api.codeclimate.com/v1/badges/68e43f2137f02f34b162/test_coverage" /></a>
+[![Maintainability](https://api.codeclimate.com/v1/badges/68e43f2137f02f34b162/maintainability)](https://codeclimate.com/github/KarangwaEmmy/Broadcaster/maintainability)
 
 ## API features
 
