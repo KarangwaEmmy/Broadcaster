@@ -1,31 +1,17 @@
 import { Pool } from 'pg';
-import dotenv from 'dotenv';
-import '@babel/polyfill';
+import { config } from 'dotenv';
 
-dotenv.config();
+config();
+// eslint-disable-next-line import/no-mutable-exports
+let pool;
 
-let url;
-if(process.env.NODE_ENV === 'test'){
-  url =process.env.DATABASE_URL_TEST;
-}else{
-  url =process.env.DATABASE_URL;
+if (process.env.NODE_ENV === 'test') {
+  pool = new Pool({
+    connectionString: process.env.DATABASE_URL_TEST,
+  });
+} else {
+  pool = new Pool({
+    connectionString: process.env.DATABASE_URL,
+  });
 }
-
-const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-});
-
-export default {
-
-  query(text, params) {
-    return new Promise((resolve, reject) => {
-      pool.query(text, params)
-        .then((res) => {
-          resolve(res);
-        })
-        .catch((err) => {
-          reject(err);
-        });
-    });
-  },
-};
+export default pool;

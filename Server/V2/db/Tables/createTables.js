@@ -1,8 +1,6 @@
 import dbQuery from '../config';
 
-const sqlQueries = {};
-
-const alltables = `
+const userTbale = `
                CREATE TABLE IF NOT EXISTS users(
                   id SERIAL PRIMARY KEY,
                   email VARCHAR(128) UNIQUE NOT NULL,
@@ -12,27 +10,31 @@ const alltables = `
                   password VARCHAR(255) NOT NULL,
                   username VARCHAR(255) UNIQUE NOT NULL,
                   isadmin VARCHAR(255) NOT NULL
-                  );
-                  
-                  
-                  CREATE TABLE IF NOT EXISTS intervention(
+                  ); `;
+
+const flagTable = `
+                  CREATE TABLE IF NOT EXISTS redflag(
                     id SERIAL PRIMARY KEY,
-                    created_on VARCHAR NOT NULL,
-                    user_id INTEGER REFERENCES users(id) NOT NULL,
-                    createdBy VARCHAR(128) REFERENCES users(email)  NOT NULL,
+                    createdby VARCHAR(128) REFERENCES users(email)  NOT NULL,
                     title VARCHAR(128) NOT NULL,
                     type VARCHAR(128) NOT NULL,
                     location VARCHAR(128) NOT NULL,
                     status VARCHAR(128) NOT NULL,
-                    image_url VARCHAR(128) NOT NULL,
-                    video_url VARCHAR(128) NOT NULL,
-                    comment VARCHAR(255) NOT NULL
-                    );                  
-                    
-`;
+                    images VARCHAR(128) NOT NULL,
+                    videos VARCHAR(128) NOT NULL,
+                    comment VARCHAR(255) NOT NULL,
+                    created_on TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP
+                    );   `;
 
 
-sqlQueries.alltables = alltables;
- dbQuery(alltables);
+const createAllTables = async () => {
+  try {
+    await dbQuery.query(userTbale);
+    await dbQuery.query(flagTable);
+    console.log(' ======= All tables have been created =======');
+  } catch (error) {
+    console.log(error);
+  }
+};
 
- export default sqlQueries;
+export default createAllTables();

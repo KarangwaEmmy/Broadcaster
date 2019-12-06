@@ -1,15 +1,17 @@
 
 import dbQuery from '../config';
+import '@babel/polyfill';
 
-const sqlQueries = {};
 
-const dropTables = `
-DROP TABLE IF EXISTS users,intervention CASCADE
-                                   
-`;
-
-sqlQueries.dropTables = dropTables;
- dbQuery(dropTables);
-
- export default sqlQueries;
-
+const userTable = 'DROP TABLE IF EXISTS users CASCADE';
+const flagTable = 'DROP TABLE IF EXISTS intervention CASCADE ';
+const dropAllTables = async () => {
+  try {
+    await dbQuery.query(userTable);
+    await dbQuery.query(flagTable);
+    console.log('=========  All tables have been dropped ==========');
+  } catch (error) {
+    console.log(error);
+  }
+};
+export default dropAllTables;
