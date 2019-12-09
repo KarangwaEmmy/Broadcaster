@@ -45,6 +45,7 @@ const User = {
     const token = (genToken(LoginUser));
 
     return res.status(200).send({
+      status: 200,
       message: 'User is successfully logged in',
       data: {
         token,

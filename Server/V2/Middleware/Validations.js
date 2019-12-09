@@ -19,7 +19,7 @@ const UpdateCommentSchema = Joi.object().keys({
 
 const errorMessage = (err, res) => {
   const errMessage = err.details[0].message;
-  return serverResponse(res, 422, ...['status', 'error', 'Message', errMessage]);
+  return res.status(400).send({ status: 400, message: errMessage });
 };
 // eslint-disable-next-line arrow-body-style
 const loginValidator = (req, res, next) => {
@@ -32,7 +32,7 @@ const loginValidator = (req, res, next) => {
 };
 
 const SignupValidator = async (req, res, next) => {
-  const schema = Joi.object({
+  const schema = Joi.object().keys({
     firstname: Joi.string().min(4).required(),
     lastname: Joi.string().min(4).required(),
     email: Joi.string().min(6).required().email(),

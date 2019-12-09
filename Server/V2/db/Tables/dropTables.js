@@ -4,7 +4,7 @@ import '@babel/polyfill';
 
 
 const userTable = 'DROP TABLE IF EXISTS users CASCADE';
-const flagTable = 'DROP TABLE IF EXISTS intervention CASCADE ';
+const flagTable = 'DROP TABLE IF EXISTS redflag CASCADE ';
 const dropAllTables = async () => {
   try {
     await dbQuery.query(userTable);
@@ -14,4 +14,4 @@ const dropAllTables = async () => {
     console.log(error);
   }
 };
-export default dropAllTables;
+export default dropAllTables();

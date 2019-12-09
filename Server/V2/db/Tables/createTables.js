@@ -1,4 +1,6 @@
 import dbQuery from '../config';
+import userData from './insertUser';
+import entryData from './insertData';
 
 const userTbale = `
                CREATE TABLE IF NOT EXISTS users(
@@ -31,7 +33,12 @@ const createAllTables = async () => {
   try {
     await dbQuery.query(userTbale);
     await dbQuery.query(flagTable);
+    await dbQuery.query(userData.user);
+    await dbQuery.query(userData.user1);
+    await dbQuery.query(entryData.data);
+    await dbQuery.query(entryData.data1);
     console.log(' ======= All tables have been created =======');
+    console.log('Hey User sample data are inserting in the database.. at the moment');
   } catch (error) {
     console.log(error);
   }
