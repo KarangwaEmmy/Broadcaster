@@ -93,9 +93,10 @@ const Flag = {
    const id = Number(req.params.id);
    const deletedFlag = await flagModel.deleteredFlag(id);
    if (deletedFlag) {
-    return serverResponse(res, 200, ...['status', '200', 'data', { message: 'red flag deleted Successfully' }]);
+     return res.status(200).json({ status: 200, message:  'record deleted successfuly', })
+     
    }
-    return serverResponse(res, 200, ...['status', '404', 'Message', 'Indicent not found, may be was deleted']);
+    return serverResponse(res, 404, ...['status', '404', 'Message', 'Indicent not found, may be was deleted']);
 } catch (err) {
     return serverError(res);
   }

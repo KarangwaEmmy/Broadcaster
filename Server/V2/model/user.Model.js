@@ -39,13 +39,11 @@ class Users {
 
   // checking User mail exists
   async checkEmail(email) {
-    const text = 'SELECT * FROM users WHERE email =$1';
-    try {
-      const { row } = await db.query(text, [email]);
-      return row;
-    } catch (error) {
-      return error;
-    }
+    const emailToCheck = email.toString().trim().toLowerCase();
+    const text = 'SELECT * FROM users WHERE email = $1';
+    const values = [emailToCheck];
+    const { rows } = await db.query(text, values);
+    return rows;
   }
 
   // checking username mail exists
